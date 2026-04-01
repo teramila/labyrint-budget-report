@@ -127,7 +127,7 @@ V HTML kalkulačce jsou v bilanci jako editovatelné položky (spolu s dalším 
 Odhady: ubytko = 1 000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1 000 Kč zpáteční.
 Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **zdarma**, domluva přes Prostě se hýbej (Kája); samostatná položka „Video“ v budgetu není.
 
-### Fixní náklady (nezrušitelné) – celkem ~191 513 bez DPH / ~221 631 s DPH (bez videa)
+### Fixní náklady (nezrušitelné) – celkem ~181 513 bez DPH / ~211 631 s DPH (bez videa)
 
 | Druh | Cena | Cena s DPH | Poznámka |
 |---|---:|---:|---|
@@ -138,7 +138,6 @@ Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **
 | WEB (11 měsíců) | 5 000 | 5 000 | Placeno Vendy |
 | Fcb reklama | 15 705 | 15 705 | Placeno Petra |
 | FB Reklama Kristýna | 6 412 | 6 412 | |
-| OSA (autorská práva) | ~10 000 | ~10 000 | Odhad |
 | SimpleShop poplatek | ~2 500 | ~2 500 | Odhad za duben (květnová faktura) |
 
 ### Daňový poradce: 6 500 Kč
@@ -163,13 +162,12 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 | + Catering (očekáváno) | 30 000 |
 | + Notino (očekáváno) | 10 000 |
 | + Další vstupné | (doplň v HTML) |
-| **Výdaje celkem (s DPH)** | **~307 131** |
+| **Výdaje celkem (s DPH)** | **~297 131** |
 | — z toho performeři vč. ubytka/cesty | 79 000 |
-| — z toho fixní (s DPH) | ~221 631 |
+| — z toho fixní (s DPH) | ~211 631 |
 | — z toho daňový poradce | 6 500 |
-| **Výsledek (s DPH), jen účet + catering + Notino** | **~−122 229** |
-| **Výsledek (přes plátce DPH), totéž** | **~−92 111** |
-| Výsledek BEZ performerů (účet + catering + Notino) | **~−43 229** |
+| **Výsledek (s DPH), jen účet + catering + Notino** | **~−112 229** |
+| **Výsledek (přes plátce DPH), totéž** | **~−82 111** |
 
 Přes plátce DPH ušetříte 30 118 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit).
 
