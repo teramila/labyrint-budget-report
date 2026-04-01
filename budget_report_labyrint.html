@@ -141,6 +141,46 @@
         .kpis { grid-template-columns: 1fr; }
         .cols-4, .cols-6, .cols-8 { grid-column: span 12; }
       }
+
+      /* Break-even: nesmí zmizet v tabulce (td má malé písmo) */
+      .b26-ticket-count {
+        display: block;
+        margin-top: 4px;
+        font-family: var(--mono);
+        font-size: clamp(22px, 4.5vw, 32px) !important;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+      .b26-ticket-count.need { color: var(--warn); }
+      .b26-ticket-count.ok { color: var(--good); }
+      .b26-break-box {
+        margin-top: 16px;
+        padding: 16px 18px;
+        border-radius: 14px;
+        border: 2px solid rgba(245, 158, 11, 0.45);
+        background: rgba(245, 158, 11, 0.12);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .b26-break-box .b26-break-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--y25);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 10px;
+      }
+      .b26-break-box p { margin: 0 0 10px; }
+      .b26-break-box p:last-child { margin-bottom: 0; }
+      .b26-break-box .big-num {
+        font-family: var(--mono);
+        font-size: clamp(26px, 5vw, 38px);
+        font-weight: 900;
+        color: #fbbf24;
+        font-variant-numeric: tabular-nums;
+      }
     </style>
   </head>
   <body>
@@ -493,6 +533,11 @@
           <!-- Budget celkem + Bilance -->
           <div class="card cols-12">
             <h2>Bilance 2026 – jak na tom jsme</h2>
+            <p class="note" style="margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--y26border); background: var(--y26bg)">
+              <b>Počet vstupenek a dopočty</b> běží v prohlížeči (JavaScript). Otevírej prosím stránku přes
+              <b>GitHub Pages</b> (např. <span class="mono">teramila.github.io/…/budget_report_labyrint.html</span>) —
+              náhled souboru přímo na github.com často <b>JavaScript vypne</b>, pak uvidíš jen pomlčky.
+            </p>
             <table>
               <thead><tr><th>Položka</th><th class="num">Částka (s DPH)</th><th>Poznámka</th></tr></thead>
               <tbody>
@@ -566,7 +611,7 @@
                     <b id="b26_gapDphKc" class="mono" style="font-size: 15px">—</b>
                     <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border)">
                       <div class="muted tiny" style="margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em">počet vstupenek na nulu</div>
-                      <b id="b26_gapDphCnt" class="mono" style="font-size: 22px; font-weight: 800">—</b>
+                      <span id="b26_gapDphCnt" class="b26-ticket-count need">—</span>
                     </div>
                   </td>
                   <td class="muted" id="b26_gapDphTickets" style="font-size: 13px; line-height: 1.5">—</td>
@@ -578,13 +623,22 @@
                     <b id="b26_gapBezKc" class="mono" style="font-size: 15px">—</b>
                     <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border)">
                       <div class="muted tiny" style="margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em">počet vstupenek na nulu</div>
-                      <b id="b26_gapBezCnt" class="mono" style="font-size: 22px; font-weight: 800">—</b>
+                      <span id="b26_gapBezCnt" class="b26-ticket-count need">—</span>
                     </div>
                   </td>
                   <td class="muted" id="b26_gapBezTickets" style="font-size: 13px; line-height: 1.5">—</td>
                 </tr>
               </tbody>
             </table>
+            <div id="b26_breakEvenBox" class="b26-break-box" aria-live="polite">
+              <div class="b26-break-title">Kolik vstupenek prodat na nulu</div>
+              <p id="b26_breakLineDph">
+                <strong>Scénář s DPH:</strong> <span class="muted">načítám…</span>
+              </p>
+              <p id="b26_breakLineBez">
+                <strong>Přes plátce DPH:</strong> <span class="muted">načítám…</span>
+              </p>
+            </div>
             <div class="tiny" id="b26_hint">Uprav účet, catering, Notino, vstupné — výsledek se dopočítá.</div>
           </div>
 
@@ -851,14 +905,18 @@
           return `${n} vstupenek`;
         };
 
+        const vstupAcc = (n) => (n === 1 ? "vstupenku" : n >= 2 && n <= 4 ? "vstupenky" : "vstupenek");
+
         const setGapRow = (kEl, cntEl, tEl, gap) => {
+          cntEl.style.removeProperty("color");
+          cntEl.classList.remove("need", "ok");
+          cntEl.classList.add("b26-ticket-count");
           if (gap <= 0.005) {
             kEl.textContent = "0 Kč";
             kEl.classList.remove("bad", "good");
             kEl.classList.add("good");
             cntEl.textContent = "0 navíc";
-            cntEl.classList.remove("bad", "good", "warn");
-            cntEl.classList.add("good");
+            cntEl.classList.add("ok");
             tEl.textContent =
               gap < -0.005
                 ? `V plusu o ${fmt(Math.abs(gap))} Kč — žádné další vstupenky na nulu nepotřebuješ.`
@@ -870,13 +928,11 @@
             if (ticketPrice > 0.005) {
               const n = Math.ceil(gap / ticketPrice - 1e-9);
               cntEl.textContent = vstupWord(n);
-              cntEl.classList.remove("bad", "good", "warn");
-              cntEl.classList.add("warn");
+              cntEl.classList.add("need");
               tEl.textContent = `Při ${fmt(ticketPrice)} Kč za kus; počet zaokrouhlen nahoru, aby pokryl celý doplatek.`;
             } else {
               cntEl.textContent = "—";
-              cntEl.classList.remove("bad", "good", "warn");
-              cntEl.classList.add("muted");
+              cntEl.style.color = "var(--muted)";
               tEl.textContent = "Zadej cenu vstupenky výše — bez ní nejde spočítat počet kusů.";
             }
           }
@@ -894,6 +950,42 @@
           document.getElementById("b26_gapBezTickets"),
           gapBez
         );
+
+        const lineDph = document.getElementById("b26_breakLineDph");
+        const lineBez = document.getElementById("b26_breakLineBez");
+        const fillBreak = (el, title, gap) => {
+          el.replaceChildren();
+          const strong = document.createElement("strong");
+          strong.textContent = title;
+          el.appendChild(strong);
+          if (gap <= 0.005) {
+            const s = document.createElement("span");
+            s.className = "good";
+            s.textContent =
+              gap < -0.005
+                ? ` V plusu o ${fmt(Math.abs(gap))} Kč — další vstupenky na nulu nepotřebuješ.`
+                : " Na nule.";
+            el.appendChild(s);
+            return;
+          }
+          if (ticketPrice <= 0.005) {
+            el.appendChild(document.createTextNode(` Chybí ${fmt(gap)} Kč — doplň cenu vstupenky v tabulce výše.`));
+            return;
+          }
+          const n = Math.ceil(gap / ticketPrice - 1e-9);
+          el.appendChild(document.createTextNode(" Prodej ještě "));
+          const big = document.createElement("span");
+          big.className = "big-num";
+          big.textContent = String(n);
+          el.appendChild(big);
+          el.appendChild(
+            document.createTextNode(
+              ` ${vstupAcc(n)} po ${fmt(ticketPrice)} Kč (doplatek ${fmt(gap)} Kč).`
+            )
+          );
+        };
+        fillBreak(lineDph, "Scénář s DPH:", gapDph);
+        fillBreak(lineBez, "Přes plátce DPH:", gapBez);
 
         document.getElementById("b26_hint").textContent =
           result >= 0 ? "Jsme v plusu (i s performery a DPH)." :
