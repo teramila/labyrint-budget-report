@@ -100,9 +100,16 @@ Vstupenky na akci 2026 se začaly prodávat v prosinci 2025.
 - **SimpleShop + bankovní poplatky**: **−8 128 Kč**
 - **Čistý stav na účtu**: **144 902 Kč** (ke dni 1. 4. 2026)
 
+**Další očekávané příjmy (dle Elišky, mimo účet zatím):**
+
+- Catering: **30 000 Kč**
+- Notino (sponzoring): **10 000 Kč**
+
+V HTML kalkulačce jsou v bilanci jako editovatelné položky (spolu s dalším vstupným).
+
 ## 5) Plánovaný budget 2026
 
-### Performeři (zrušitelní) – celkem 89 000 Kč (vč. ubytka a cesty)
+### Performeři (zrušitelní) – celkem 79 000 Kč (vč. ubytka a cesty; Lucie zdarma)
 
 | Jméno | Téma | Honorář | Ubytko | Cesta | Celkem |
 |---|---|---:|---:|---:|---:|
@@ -112,15 +119,15 @@ Vstupenky na akci 2026 se začaly prodávat v prosinci 2025.
 | DJ Neomi | DJ | 5 000 | — | — | 5 000 |
 | DJ Stefunno | DJ | 5 000 | — | — | 5 000 |
 | DJ Danjela | DJ | 5 000 | — | — | 5 000 |
-| Lucie Stonavská | Fire, UV, Pole | 10 000 | — | — | 10 000 |
+| Lucie Stonavská | Fire, UV, Pole — přes **Prostě se hýbej** (Kája), **zdarma** | 0 | — | — | 0 |
 | Markéta Houslistka | Houslistka | 3 000 | — | — | 3 000 |
 | DJ Radovan | DJ | 5 000 | — | — | 5 000 |
-| **Celkem** | | **85 000** | **1 000** | **3 000** | **89 000** |
+| **Celkem** | | **75 000** | **1 000** | **3 000** | **79 000** |
 
 Odhady: ubytko = 1 000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1 000 Kč zpáteční.
-Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka).
+Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **zdarma**, domluva přes Prostě se hýbej (Kája); samostatná položka „Video“ v budgetu není.
 
-### Fixní náklady (nezrušitelné) – celkem ~199 513 bez DPH / ~229 631 s DPH
+### Fixní náklady (nezrušitelné) – celkem ~191 513 bez DPH / ~221 631 s DPH (bez videa)
 
 | Druh | Cena | Cena s DPH | Poznámka |
 |---|---:|---:|---|
@@ -128,7 +135,6 @@ Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka).
 | Zvuk + Světla | 70 000 | 84 700 | |
 | Security | 13 896 | 16 814 | 6 osob/10h, 350 Kč/h |
 | Vestibul Interiér/doprava | 18 000 | 20 000 | DPH 2 000 uvnitř |
-| Video | 8 000 | 8 000 | |
 | WEB (11 měsíců) | 5 000 | 5 000 | Placeno Vendy |
 | Fcb reklama | 15 705 | 15 705 | Placeno Petra |
 | FB Reklama Kristýna | 6 412 | 6 412 | |
@@ -154,15 +160,18 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 | Položka | Částka |
 |---|---:|
 | Na účtu teď | 144 902 |
-| **Výdaje celkem (s DPH)** | **~325 131** |
-| — z toho performeři vč. ubytka/cesty | 89 000 |
-| — z toho fixní (s DPH) | ~229 631 |
+| + Catering (očekáváno) | 30 000 |
+| + Notino (očekáváno) | 10 000 |
+| + Další vstupné | (doplň v HTML) |
+| **Výdaje celkem (s DPH)** | **~307 131** |
+| — z toho performeři vč. ubytka/cesty | 79 000 |
+| — z toho fixní (s DPH) | ~221 631 |
 | — z toho daňový poradce | 6 500 |
-| **Výsledek (s DPH)** | **~−180 229** |
-| **Výsledek (přes plátce DPH)** | **~−150 111** |
-| Výsledek BEZ performerů | ~−91 229 |
+| **Výsledek (s DPH), jen účet + catering + Notino** | **~−122 229** |
+| **Výsledek (přes plátce DPH), totéž** | **~−92 111** |
+| Výsledek BEZ performerů (účet + catering + Notino) | **~−43 229** |
 
-Přes plátce DPH ušetříte 30 118 Kč. Bez dalších příjmů to nevychází. Sledujte bilanci v HTML kalkulačce.
+Přes plátce DPH ušetříte 30 118 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit).
 
 ## 7) Soubory
 
