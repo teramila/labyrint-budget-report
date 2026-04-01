@@ -171,6 +171,8 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 
 Přes plátce DPH ušetříte 30 118 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit).
 
+V **HTML** je pod bilancí sekce **„Na nulu — kolik ještě vydělat vstupným“**: doplatek v Kč pro scénář s DPH i přes plátce DPH a odhad počtu vstupenek při **výchozí ceně 1 290 Kč** (cenu lze v tabulce změnit). Počet lístků se počítá nahoru (`ceil`), aby pokryl celý schodek.
+
 ## 7) Soubory
 
 - HTML report (interaktivní): `G:\Můj disk\Labyrint\Budget Report\budget_report_labyrint.html`
