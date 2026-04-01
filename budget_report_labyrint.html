@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Labyrint – Budget Report 2025 / 2026</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(255, 255, 255, 0.06);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --border: rgba(255, 255, 255, 0.14);
+        --good: #22c55e;
+        --bad: #ef4444;
+        --warn: #f59e0b;
+        --accent: #8b5cf6;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        --y25: #f59e0b;
+        --y25bg: rgba(245, 158, 11, 0.08);
+        --y25border: rgba(245, 158, 11, 0.25);
+        --y26: #8b5cf6;
+        --y26bg: rgba(139, 92, 246, 0.08);
+        --y26border: rgba(139, 92, 246, 0.25);
+      }
+      html, body { height: 100%; }
+      body {
+        margin: 0; font-family: var(--sans); color: var(--text);
+        background: radial-gradient(1200px 900px at 15% 0%, rgba(139,92,246,.18), transparent 60%),
+          radial-gradient(900px 700px at 85% 10%, rgba(34,197,94,.12), transparent 55%),
+          radial-gradient(900px 700px at 40% 90%, rgba(245,158,11,.1), transparent 55%), var(--bg);
+      }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 56px; }
+      header { margin-bottom: 18px; }
+      h1 { margin: 0 0 6px; font-size: 26px; }
+      .note { font-size: 12px; color: var(--muted); line-height: 1.55; }
+      .mono { font-family: var(--mono); }
+      .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 14px; }
+      .card {
+        border: 1px solid var(--border); background: var(--panel);
+        border-radius: 14px; padding: 14px; overflow: hidden;
+      }
+      .card h2 { margin: 0 0 10px; font-size: 14px; color: var(--muted); font-weight: 600; }
+      .cols-4 { grid-column: span 4; } .cols-6 { grid-column: span 6; }
+      .cols-8 { grid-column: span 8; } .cols-12 { grid-column: span 12; }
+      .kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+      .kpi { border: 1px solid var(--border); background: rgba(255,255,255,.04); border-radius: 12px; padding: 10px; }
+      .kpi .label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+      .kpi .value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+      .kpi .sub { margin-top: 6px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+      table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+      th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+      th { font-size: 12px; color: var(--muted); font-weight: 700; background: rgba(255,255,255,.03); }
+      td { font-size: 13px; }
+      td.num, th.num { text-align: right; font-family: var(--mono); }
+      .good { color: var(--good); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+      .muted { color: var(--muted); }
+      .tiny { font-size: 11px; color: var(--muted); margin-top: 8px; }
+      button {
+        appearance: none; border: 1px solid var(--border); background: rgba(255,255,255,.06);
+        color: var(--text); border-radius: 12px; padding: 9px 12px; font-weight: 700; font-size: 12px; cursor: pointer;
+      }
+      button:hover { background: rgba(255,255,255,.09); }
+      .btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+      .copybox { border: 1px dashed var(--border); border-radius: 14px; padding: 12px; background: rgba(0,0,0,.18); }
+      .copybox pre { margin: 0; white-space: pre-wrap; word-break: break-word; color: rgba(255,255,255,.86); font-size: 12px; line-height: 1.6; }
+      input[type="text"], input[inputmode="decimal"], input:not([type]) {
+        background: rgba(255,255,255,.06); border: 1px solid var(--border); color: var(--text);
+        border-radius: 8px; padding: 6px 8px; font-family: var(--mono); font-size: 13px;
+      }
+
+      /* Year section styling */
+      .year-section { margin-top: 32px; padding: 24px 0 12px; border-radius: 18px; position: relative; }
+      .year-header {
+        font-size: 22px; font-weight: 900; letter-spacing: 1px; padding: 14px 20px;
+        border-radius: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+      }
+      .year-header .badge {
+        font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px;
+      }
+      .y25 .year-header { background: var(--y25bg); border: 1px solid var(--y25border); color: var(--y25); }
+      .y25 .year-header .badge { background: var(--y25); color: var(--bg); }
+      .y25 .card { border-top: 3px solid var(--y25border); }
+      .y26 .year-header { background: var(--y26bg); border: 1px solid var(--y26border); color: var(--y26); }
+      .y26 .year-header .badge { background: var(--y26); color: #fff; }
+      .y26 .card { border-top: 3px solid var(--y26border); }
+      .year-divider { border: none; border-top: 2px dashed var(--border); margin: 40px 0 0; }
+      .tax {
+        display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 999px;
+        border: 1px solid rgba(245,158,11,.35); background: rgba(245,158,11,.12);
+        font-weight: 800; font-family: var(--mono); white-space: nowrap;
+      }
+      .tax::before { content: "DAŇ"; font-weight: 900; letter-spacing: .7px; color: var(--y25); }
+      .advisor {
+        display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 999px;
+        border: 1px solid rgba(139,92,246,.35); background: rgba(139,92,246,.12);
+        font-weight: 800; font-family: var(--mono); white-space: nowrap;
+      }
+      .advisor::before { content: "PORADCE"; font-weight: 900; letter-spacing: .7px; color: var(--y26); }
+      .performer-tag {
+        display: inline-block; padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 700;
+        background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.25); color: var(--good);
+      }
+      .fixed-tag {
+        display: inline-block; padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 700;
+        background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.2); color: var(--bad);
+      }
+      .callout {
+        border-radius: 14px; padding: 16px 20px; margin: 14px 0; font-size: 14px; line-height: 1.6;
+      }
+      .callout-amber {
+        background: rgba(245,158,11,.1); border: 2px solid rgba(245,158,11,.35); color: var(--text);
+      }
+      .callout-amber .callout-icon { font-size: 20px; margin-right: 8px; }
+      .callout b { color: #fbbf24; }
+      .callout .callout-title {
+        font-size: 15px; font-weight: 900; margin-bottom: 8px; color: var(--y25);
+        display: flex; align-items: center; gap: 8px;
+      }
+      .callout ul { margin: 8px 0 0; padding-left: 20px; }
+      .callout li { margin-bottom: 4px; }
+
+      .summary-box {
+        border-radius: 14px; padding: 18px 20px; margin-top: 16px;
+        background: linear-gradient(135deg, rgba(34,197,94,.08), rgba(245,158,11,.08));
+        border: 2px solid rgba(34,197,94,.25);
+      }
+      .summary-box h3 {
+        margin: 0 0 10px; font-size: 15px; color: var(--good); font-weight: 900;
+      }
+      .summary-box .action-item {
+        display: flex; align-items: baseline; gap: 10px; padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,.06); font-size: 14px;
+      }
+      .summary-box .action-item:last-child { border-bottom: none; }
+      .summary-box .action-arrow { color: var(--good); font-weight: 900; min-width: 20px; }
+      .summary-box .action-amount { font-family: var(--mono); font-weight: 700; color: #fbbf24; white-space: nowrap; }
+
+      @media (max-width: 980px) {
+        .kpis { grid-template-columns: 1fr; }
+        .cols-4, .cols-6, .cols-8 { grid-column: span 12; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Labyrint – Budget Report</h1>
+        <div class="note">
+          Tento report obsahuje dva oddělené celky: <b>rok 2025</b> (uzavřené vyúčtování) a <b>rok 2026</b> (aktivní plánování).
+          Roky se neprolínají; každý má vlastní data, účastnice a bilanci.
+        </div>
+      </header>
+
+      <!-- ═══════════════════ ROK 2025 ═══════════════════ -->
+      <section class="year-section y25">
+        <div class="year-header">ROK 2025 <span class="badge">UZAVŘENO</span></div>
+        <div class="note" style="padding: 0 4px; margin-bottom: 4px">
+          Účastnice: <b>Terka / Vendy / Eliška / Petra</b> (4 osoby). Zdroj: záložka <span class="mono">Budget</span>.
+        </div>
+
+        <div class="grid">
+          <!-- KPI -->
+          <div class="card cols-12">
+            <h2>Souhrn čísel</h2>
+            <div class="kpis">
+              <div class="kpi">
+                <div class="label">Celkem výdaje (sloupec Cena)</div>
+                <div class="value">205&nbsp;564 Kč</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Sponzoring (minusové položky)</div>
+                <div class="value good">70&nbsp;000 Kč</div>
+                <div class="sub">Flagranti 50&nbsp;000 + Notino 20&nbsp;000</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Náklady celkem (výdaje − sponzoring)</div>
+                <div class="value">135&nbsp;564 Kč</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kontrolní přepočet -->
+          <div class="card cols-8">
+            <h2>Kontrolní přepočet</h2>
+            <table>
+              <thead><tr><th>Položka</th><th class="num">Částka</th><th class="num">Kontrola</th></tr></thead>
+              <tbody>
+                <tr><td>Výdaje</td><td class="num">205&nbsp;564</td><td class="num muted">—</td></tr>
+                <tr><td>− Sponzoring (Flagranti + Notino)</td><td class="num">−70&nbsp;000</td><td class="num muted">—</td></tr>
+                <tr><td><b>Náklady celkem</b></td><td class="num"><b>135&nbsp;564</b></td><td class="num good mono">= 205 564 − 70 000</td></tr>
+                <tr><td>Příjem na účtu (vstupné)</td><td class="num">74&nbsp;466,50</td><td class="num muted">—</td></tr>
+                <tr><td><b>Rozdíl (kolik chybí)</b></td><td class="num bad"><b>−61&nbsp;097,50</b></td><td class="num good mono">= 74 466,50 − 135 564</td></tr>
+                <tr>
+                  <td><span class="tax">14&nbsp;287 Kč</span> daň z příjmu Labyrintu</td>
+                  <td class="num"><b>14&nbsp;287</b></td>
+                  <td class="num muted">platí Terka, sdílí se 4</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px">
+              Daň <span class="tax">14&nbsp;287 Kč</span> je společný náklad Labyrintu za rok 2025, který Terka musí zaplatit (zatím nezaplaceno).
+              V interním vyrovnání níže je zahrnuta a dělí se rovným dílem mezi všechny 4.
+            </div>
+          </div>
+
+          <!-- Minusové položky -->
+          <div class="card cols-4">
+            <h2>Minusové položky (sponzoring)</h2>
+            <table>
+              <thead><tr><th>Položka</th><th class="num">Částka</th></tr></thead>
+              <tbody>
+                <tr><td>minus Flagranti</td><td class="num">50&nbsp;000</td></tr>
+                <tr><td>minus Notino</td><td class="num">20&nbsp;000</td></tr>
+                <tr><td><b>Celkem</b></td><td class="num"><b>70&nbsp;000</b></td></tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px">
+              Ondřej Monhart (12&nbsp;000) je dle upřesnění <b>placený z účtu</b>;
+              Notino zůstává jako sponzoring (−20&nbsp;000).
+            </div>
+          </div>
+
+          <!-- Rozpad plátců -->
+          <div class="card cols-12">
+            <h2>Rozpad výdajů podle plátce</h2>
+            <table>
+              <thead><tr><th>Plátce</th><th class="num">Částka</th><th>Poznámka</th></tr></thead>
+              <tbody>
+                <tr><td>Terka</td><td class="num">16&nbsp;101</td><td class="muted">DJ Danjela 1&nbsp;250; DJ Stefunno 1&nbsp;250; Miss Cool Cat 13&nbsp;601</td></tr>
+                <tr><td>Vendy</td><td class="num">9&nbsp;413</td><td class="muted">Síť 6&nbsp;000; Wix 2&nbsp;250; Instagram 1&nbsp;163</td></tr>
+                <tr><td>Eliška</td><td class="num">12&nbsp;816</td><td class="muted">Vestibul brigádníci 1&nbsp;000; Technika DJs 1&nbsp;500; cesťáky 609 + 1&nbsp;522; Dekorace 8&nbsp;185</td></tr>
+                <tr><td>Petra</td><td class="num">16&nbsp;325</td><td class="muted">Ochranka 15&nbsp;500; Facebook 825</td></tr>
+                <tr><td>Z účtu</td><td class="num">86&nbsp;622</td><td class="muted">SDL 60&nbsp;000; Nábytek 10&nbsp;000; SimpleShop 3&nbsp;122; Kříž 1&nbsp;500; O. Monhart 12&nbsp;000</td></tr>
+                <tr><td>Flagranti (přímá platba)</td><td class="num">50&nbsp;000</td><td class="muted">Pronájem prostoru Futureum</td></tr>
+                <tr><td><b>Součet</b></td><td class="num"><b>205&nbsp;564</b></td><td class="good mono">Sedí na „Celkem výdaje"</td></tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px">
+              Součty berou jen sloupec <span class="mono">Cena</span> (sloupec <span class="mono">Ubytování</span> se nepřičítá).
+            </div>
+          </div>
+
+          <!-- Zůstatek na účtu – výrazný banner -->
+          <div class="cols-12">
+            <div class="callout callout-amber">
+              <div class="callout-title">ZŮSTATEK NA LABYRINT ÚČTU PO ROCE 2025</div>
+              <div style="font-size: 28px; font-weight: 900; font-family: var(--mono); color: #fbbf24; margin: 6px 0 10px">
+                9 660 Kč
+              </div>
+              <ul>
+                <li>Účet je na jméno <b>Terezy</b> — peníze jsou <b>stále na účtu</b>, nikdo si je nevzal.</li>
+                <li>Tento zůstatek vznikl z příjmů ze vstupného roku 2025 (po úhradě všech plateb z účtu).</li>
+                <li>Níže v kalkulačce si vyberete: buď <b>použít na snížení dluhu 2025</b>, nebo <b>převést do roku 2026</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Vyrovnání 2025 -->
+          <div class="card cols-12">
+            <h2>Vyrovnání 2025 – interně mezi 4 účastnicemi</h2>
+            <div class="note">
+              Cíl: aby <b>Terka / Vendy / Eliška / Petra</b> zaplatily za rok 2025 stejný podíl
+              z toho, co šlo <b>ze soukromých účtů</b> (out-of-pocket).
+              Účet „Z účtu" byl zřízený jen pro Labyrint (na jméno Terezy) a nešly na něj vaše vklady.
+            </div>
+
+            <div class="callout callout-amber" style="margin: 14px 0 10px; padding: 12px 16px">
+              <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
+                <span class="tax" style="font-size: 15px">14&nbsp;287 Kč</span>
+                <span style="font-size: 13px">Terka musí zaplatit daň z příjmu Labyrintu za 2025 — <b>zatím nezaplaceno</b>.
+                Daň je společný náklad, dělí se rovným dílem mezi všechny 4.</span>
+              </div>
+            </div>
+
+            <table style="margin-top: 10px">
+              <thead><tr><th>Nastavení</th><th class="num">Hodnota</th><th>Poznámka</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><b>Daň z příjmu 2025 (platí Terka)</b></td>
+                  <td class="num">
+                    <label class="mono" style="display:inline-flex;gap:8px;align-items:center">
+                      <input id="s25_inclTax" type="checkbox" checked /> zahrnuto <span class="tax">14&nbsp;287</span>
+                    </label>
+                  </td>
+                  <td class="muted">Daň je společný náklad Labyrintu – dělí se rovným dílem.</td>
+                </tr>
+                <tr>
+                  <td><b>Zůstatek na účtu po 2025</b></td>
+                  <td class="num"><input id="s25_leftover" class="mono" inputmode="decimal" value="9660" style="width:120px" /></td>
+                  <td class="muted">Po akci 2025 zůstalo na labyrint účtu (na jméno Terezy). Peníze jsou stále tam.</td>
+                </tr>
+                <tr>
+                  <td><b>Použít zůstatek na snížení dluhu 2025</b></td>
+                  <td class="num">
+                    <label class="mono" style="display:inline-flex;gap:8px;align-items:center">
+                      <input id="s25_useLeft" type="checkbox" checked /> ano
+                    </label>
+                  </td>
+                  <td class="muted">Když zapnuto, zůstatek sníží „ke sdílení". Jinak se převede do 2026.</td>
+                </tr>
+                <tr>
+                  <td><b>Ke sdílení</b></td>
+                  <td class="num"><b id="s25_total" class="mono">—</b></td>
+                  <td class="muted">= osobní platby + daň − zůstatek</td>
+                </tr>
+                <tr>
+                  <td><b>Podíl na osobu</b></td>
+                  <td class="num"><b id="s25_perPerson" class="mono">—</b></td>
+                  <td class="muted">= ke sdílení / 4</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table style="margin-top: 12px" id="s25_table">
+              <thead>
+                <tr>
+                  <th>Osoba</th>
+                  <th class="num">Osobně zaplaceno (edit.)</th>
+                  <th class="num">Daň (pokud zahrn.)</th>
+                  <th class="num">Celkem příspěvek</th>
+                  <th class="num">Rozdíl vs. podíl</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot>
+                <tr>
+                  <th>Součet</th>
+                  <th class="num" id="s25_sumPers">—</th>
+                  <th class="num" id="s25_sumTax">—</th>
+                  <th class="num" id="s25_sumContr">—</th>
+                  <th class="num" id="s25_sumDiff">—</th>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="tiny" id="s25_status"></div>
+
+            <div class="card" style="margin-top: 12px; background: rgba(255,255,255,.04)">
+              <h2 style="margin-top: 0">Návrh převodů (kdo komu)</h2>
+              <div class="note">Převody mezi osobami (hotově / převodem):</div>
+              <table style="margin-top: 6px">
+                <thead><tr><th>Plátce</th><th>Příjemce</th><th class="num">Částka</th></tr></thead>
+                <tbody id="s25_transfers"><tr><td class="muted" colspan="3">—</td></tr></tbody>
+              </table>
+              <div id="s25_accountBlock" style="display:none; margin-top: 14px">
+                <div class="note" style="margin-bottom: 6px">
+                  Výplaty <b>z účtu</b> (zůstatek 2025, drží Terka) — zbylé přeplatky, které pokryje účet:
+                </div>
+                <table>
+                  <thead><tr><th>Z účtu →</th><th>Příjemce</th><th class="num">Částka</th></tr></thead>
+                  <tbody id="s25_accountTransfers"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Shrnutí: co kdo má udělat -->
+            <div class="summary-box" id="s25_summary" style="margin-top: 18px">
+              <h3>SHRNUTÍ — co kdo udělá pro uzavření roku 2025</h3>
+              <div id="s25_summaryContent"></div>
+              <div class="tiny" style="margin-top: 10px; color: var(--muted)" id="s25_summaryNote"></div>
+            </div>
+          </div>
+
+        </div><!-- /grid 2025 -->
+      </section>
+
+      <hr class="year-divider" />
+
+      <!-- ═══════════════════ ROK 2026 ═══════════════════ -->
+      <section class="year-section y26">
+        <div class="year-header">ROK 2026 <span class="badge">AKTIVNÍ</span></div>
+        <div class="note" style="padding: 0 4px; margin-bottom: 4px">
+          Účastnice: <b>Terka / Vendy / Eliška / Petra / Karolína</b> (5 osob). Akce: <b>18. 4. 2026</b>.
+        </div>
+
+        <div class="grid">
+          <!-- Stav účtu z CSV -->
+          <div class="card cols-12">
+            <h2>Stav účtu (pohyby ze CSV, účet 2203369034)</h2>
+            <div class="kpis">
+              <div class="kpi">
+                <div class="label">Příjmy ze vstupenek (prosinec 2025 – 1. 4. 2026)</div>
+                <div class="value good">153&nbsp;030 Kč</div>
+                <div class="sub">2025 část: 23&nbsp;760 | 2026 část: 129&nbsp;270</div>
+              </div>
+              <div class="kpi">
+                <div class="label">SimpleShop poplatky + bankovní poplatky</div>
+                <div class="value bad">−8&nbsp;128 Kč</div>
+                <div class="sub">2025: −539 | 2026: −7&nbsp;589</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Čistý stav na účtu</div>
+                <div class="value">144&nbsp;902 Kč</div>
+                <div class="sub">= příjmy − poplatky (ke dni 1. 4. 2026)</div>
+              </div>
+            </div>
+            <div class="note" style="margin-top: 10px">
+              Toto je účet pro akci 2026 (vstupenky se začaly prodávat v prosinci 2025).
+              Zůstatek 9&nbsp;660 Kč z akce 2025 je na jiném/starším účtu a řeší se ve vyrovnání 2025 výše.
+            </div>
+          </div>
+
+          <!-- Budget 2026: Performeři -->
+          <div class="card cols-12">
+            <h2>Plánovaný budget 2026 – Performeři <span class="performer-tag">zrušitelní</span></h2>
+            <table>
+              <thead><tr><th>Jméno</th><th>Téma</th><th class="num">Honorář</th><th class="num">Ubytko</th><th class="num">Cesta</th><th class="num">Celkem</th></tr></thead>
+              <tbody>
+                <tr><td>Aran Mars</td><td>Boylesque</td><td class="num">12&nbsp;000</td><td class="num">1&nbsp;000</td><td class="num">1&nbsp;000</td><td class="num">14&nbsp;000</td></tr>
+                <tr><td>Ivy Kolcun</td><td>Na stuhách</td><td class="num">10&nbsp;000</td><td class="num muted">—</td><td class="num">1&nbsp;000</td><td class="num">11&nbsp;000</td></tr>
+                <tr><td>Terezie Kovalová</td><td>Violoncello</td><td class="num">30&nbsp;000</td><td class="num muted">—</td><td class="num">1&nbsp;000</td><td class="num">31&nbsp;000</td></tr>
+                <tr><td>DJ Neomi</td><td>DJ</td><td class="num">5&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">5&nbsp;000</td></tr>
+                <tr><td>DJ Stefunno</td><td>DJ</td><td class="num">5&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">5&nbsp;000</td></tr>
+                <tr><td>DJ Danjela</td><td>DJ</td><td class="num">5&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">5&nbsp;000</td></tr>
+                <tr><td>Lucie Stonavská</td><td>Fire, UV, Pole</td><td class="num">10&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">10&nbsp;000</td></tr>
+                <tr><td>Markéta Houslistka</td><td>Houslistka</td><td class="num">3&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">3&nbsp;000</td></tr>
+                <tr><td>DJ Radovan</td><td>DJ</td><td class="num">5&nbsp;000</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">5&nbsp;000</td></tr>
+                <tr style="border-top: 2px solid var(--border)">
+                  <td><b>Honoráře celkem</b></td><td></td>
+                  <td class="num"><b>85&nbsp;000</b></td>
+                  <td class="num"><b>1&nbsp;000</b></td>
+                  <td class="num"><b>3&nbsp;000</b></td>
+                  <td class="num"><b>89&nbsp;000</b></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px">
+              Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka).<br>
+              Odhady: ubytko = 1&nbsp;000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1&nbsp;000 Kč zpáteční.
+            </div>
+          </div>
+
+          <!-- Budget 2026: Fixní náklady -->
+          <div class="card cols-12">
+            <h2>Plánovaný budget 2026 – Fixní náklady <span class="fixed-tag">nezrušitelné</span></h2>
+            <table>
+              <thead><tr><th>Druh</th><th>Detail</th><th class="num">Cena</th><th class="num">Cena s DPH</th><th>Poznámka</th></tr></thead>
+              <tbody>
+                <tr><td>Pronájem</td><td></td><td class="num">50&nbsp;000</td><td class="num">60&nbsp;500</td><td class="muted"></td></tr>
+                <tr><td>Zvuk + Světla</td><td></td><td class="num">70&nbsp;000</td><td class="num">84&nbsp;700</td><td class="muted"></td></tr>
+                <tr><td>Security</td><td class="muted">6 osob / 10 h</td><td class="num">13&nbsp;896</td><td class="num">16&nbsp;814</td><td class="muted">350 Kč/h</td></tr>
+                <tr><td>Vestibul Interiér/doprava</td><td></td><td class="num">18&nbsp;000</td><td class="num">20&nbsp;000</td><td class="muted">DPH 2&nbsp;000 Kč uvnitř</td></tr>
+                <tr><td>Video</td><td></td><td class="num">8&nbsp;000</td><td class="num">8&nbsp;000</td><td class="muted"></td></tr>
+                <tr><td>WEB</td><td class="muted">11 měsíců</td><td class="num">5&nbsp;000</td><td class="num">5&nbsp;000</td><td class="muted">Placeno Vendy</td></tr>
+                <tr><td>Fcb reklama</td><td></td><td class="num">15&nbsp;705</td><td class="num">15&nbsp;705</td><td class="muted">Placeno Petra</td></tr>
+                <tr><td>FB Reklama Kristýna</td><td></td><td class="num">6&nbsp;412</td><td class="num">6&nbsp;412</td><td class="muted"></td></tr>
+                <tr><td>OSA (autorská práva)</td><td class="muted">odhad</td><td class="num">~10&nbsp;000</td><td class="num">~10&nbsp;000</td><td class="muted">Přibližná částka</td></tr>
+                <tr><td>SimpleShop poplatek</td><td class="muted">odhad květen</td><td class="num">~2&nbsp;500</td><td class="num">~2&nbsp;500</td><td class="muted">Za dubnové prodeje (ještě neúčtováno)</td></tr>
+                <tr><td><b>Fixní celkem</b></td><td></td><td class="num"><b>~199&nbsp;513</b></td><td class="num"><b>~229&nbsp;631</b></td><td class="muted">Položky s ~ jsou odhady</td></tr>
+              </tbody>
+            </table>
+            <div class="note" style="margin-top: 10px">
+              Ceny <b>s DPH</b> jsou to, co reálně zaplatíte plátcům DPH (Pronájem, Zvuk, Security mají 21 % navíc).
+              Vestibul Interiér: z 20 000 je 2 000 DPH → bez DPH = 18 000.
+              Položky s ~ jsou odhady (OSA, SimpleShop).
+            </div>
+          </div>
+
+          <!-- DPH analýza -->
+          <div class="card cols-12">
+            <h2>Analýza DPH – kolik ušetříte přes plátce DPH</h2>
+            <div class="note" style="margin-bottom: 10px">
+              Pokud by faktury za položky <b>s DPH</b> šly přes plátce DPH (firma/OSVČ),
+              ten si DPH nárokuje zpět od státu a vy mu zaplatíte jen cenu <b>bez DPH</b>.
+            </div>
+            <table>
+              <thead><tr><th>Položka</th><th class="num">Bez DPH</th><th class="num">S DPH</th><th class="num" style="color: var(--good)">DPH (úspora)</th></tr></thead>
+              <tbody>
+                <tr><td>Pronájem</td><td class="num">50&nbsp;000</td><td class="num">60&nbsp;500</td><td class="num good"><b>10&nbsp;500</b></td></tr>
+                <tr><td>Zvuk + Světla</td><td class="num">70&nbsp;000</td><td class="num">84&nbsp;700</td><td class="num good"><b>14&nbsp;700</b></td></tr>
+                <tr><td>Security</td><td class="num">13&nbsp;896</td><td class="num">16&nbsp;814</td><td class="num good"><b>2&nbsp;918</b></td></tr>
+                <tr><td>Vestibul Interiér</td><td class="num">18&nbsp;000</td><td class="num">20&nbsp;000</td><td class="num good"><b>2&nbsp;000</b></td></tr>
+                <tr class="muted"><td colspan="3">Ostatní položky (Video, WEB, FB, OSA, SS…)</td><td class="num">0</td></tr>
+                <tr style="border-top: 2px solid var(--border)">
+                  <td><b>Celková možná úspora na DPH</b></td>
+                  <td class="num"></td><td class="num"></td>
+                  <td class="num good" style="font-size: 18px"><b>30&nbsp;118 Kč</b></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="callout callout-amber" style="margin-top: 12px; padding: 12px 16px">
+              <div class="callout-title" style="color: var(--good)">CO TO ZNAMENÁ</div>
+              <ul style="margin: 4px 0 0; font-size: 13px">
+                <li>Bez plátce DPH platíte fixní náklady <b>~229 631 Kč</b> (s DPH)</li>
+                <li>Přes plátce DPH byste platily jen <b>~199 513 Kč</b> (bez DPH)</li>
+                <li>Úspora = <b style="color: var(--good)">30 118 Kč</b></li>
+                <li>Výsledná bilance by se posunula o 30 tisíc k lepšímu</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Budget celkem + Bilance -->
+          <div class="card cols-12">
+            <h2>Bilance 2026 – jak na tom jsme</h2>
+            <table>
+              <thead><tr><th>Položka</th><th class="num">Částka (s DPH)</th><th>Poznámka</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><b>Na účtu teď</b> (z CSV)</td>
+                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="144902" style="width:140px" /></td>
+                  <td class="muted">Upravitelné (pokud se CSV mezitím změnilo)</td>
+                </tr>
+                <tr>
+                  <td>Očekávané další příjmy (vstupné do akce)</td>
+                  <td class="num"><input id="b26_moreIncome" class="mono" inputmode="decimal" placeholder="0" style="width:140px" /></td>
+                  <td class="muted">Kolik se ještě prodá do 18. 4.</td>
+                </tr>
+                <tr class="muted"><td colspan="3" style="padding: 4px 10px; font-size: 12px; font-weight: 700">VÝDAJE</td></tr>
+                <tr>
+                  <td>Performeři vč. ubytka/cesty</td>
+                  <td class="num"><span class="mono">89&nbsp;000</span></td>
+                  <td class="muted performer-tag" style="border:0;background:0">zrušitelní</td>
+                </tr>
+                <tr>
+                  <td>Fixní náklady (s DPH)</td>
+                  <td class="num"><span class="mono">~229&nbsp;631</span></td>
+                  <td class="muted fixed-tag" style="border:0;background:0">nezrušitelné (vč. odhadů OSA + SS)</td>
+                </tr>
+                <tr>
+                  <td>Daňový poradce</td>
+                  <td class="num"><span class="advisor">6&nbsp;500 Kč</span></td>
+                  <td class="muted">Zpracování daní za Labyrint</td>
+                </tr>
+                <tr>
+                  <td><b>Výdaje celkem (s DPH)</b></td>
+                  <td class="num"><b class="mono">~325&nbsp;131</b></td>
+                  <td class="muted">= 89 000 + ~229 631 + 6 500</td>
+                </tr>
+                <tr style="background: rgba(34,197,94,.06)">
+                  <td><b>Výdaje celkem (přes plátce DPH)</b></td>
+                  <td class="num"><b class="mono good">~295&nbsp;013</b></td>
+                  <td class="muted">= 89 000 + ~199 513 + 6 500 (úspora 30 118)</td>
+                </tr>
+                <tr style="border-top: 2px solid var(--border)">
+                  <td><b>Výsledek (s DPH)</b></td>
+                  <td class="num"><b id="b26_result" class="mono" style="font-size: 16px">—</b></td>
+                  <td class="muted">= účet + další příjmy − výdaje s DPH</td>
+                </tr>
+                <tr style="background: rgba(34,197,94,.06)">
+                  <td><b>Výsledek (přes plátce DPH)</b></td>
+                  <td class="num"><b id="b26_resultDPH" class="mono" style="font-size: 16px">—</b></td>
+                  <td class="muted">= účet + další příjmy − výdaje bez DPH (úspora 30 118)</td>
+                </tr>
+                <tr>
+                  <td><b>Výsledek BEZ performerů</b></td>
+                  <td class="num"><b id="b26_resultNoPerf" class="mono">—</b></td>
+                  <td class="muted">= účet + další příjmy − fixní − poradce</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="tiny" id="b26_hint">Uprav „Na účtu teď" a „Další příjmy" a výsledek se dopočítá.</div>
+          </div>
+
+        </div><!-- /grid 2026 -->
+      </section>
+    </div>
+
+    <script>
+      /* ── Shared helpers ── */
+      const fmt = (n) => {
+        if (typeof n !== "number" || !Number.isFinite(n)) return "—";
+        const h = Math.round(n * 100) % 100 !== 0;
+        return n.toLocaleString("cs-CZ", { minimumFractionDigits: h ? 2 : 0, maximumFractionDigits: h ? 2 : 0 });
+      };
+      const parse = (v) => {
+        if (typeof v !== "string") return NaN;
+        const s = v.trim().replace(/\s+/g, "").replace(/\u00a0/g, "").replace(/,/g, ".");
+        return s ? (Number.isFinite(Number(s)) ? Number(s) : NaN) : NaN;
+      };
+      const round2 = (n) => Math.round(n * 100) / 100;
+
+      /* ── 2025 Data ── */
+      const d25 = {
+        participants: [
+          { name: "Terka", paid: 16101 },
+          { name: "Vendy", paid: 9413 },
+          { name: "Eliška", paid: 12816 },
+          { name: "Petra", paid: 16325 },
+        ],
+        tax: 14287,
+        accountLeftover: 9660,
+      };
+
+      /* ── 2026 Data ── */
+      const d26 = {
+        accountFromCSV: 144902,
+        performersCost: 89000,
+        fixedCostDPH: 229631,
+        fixedCostBezDPH: 199513,
+        advisorFee: 6500,
+        dphSavings: 30118,
+        participants: ["Terka", "Vendy", "Eliška", "Petra", "Karolína"],
+      };
+
+      /* ═══ 2025 Settlement ═══ */
+      const s25 = {
+        inclTax: document.getElementById("s25_inclTax"),
+        leftover: document.getElementById("s25_leftover"),
+        useLeft: document.getElementById("s25_useLeft"),
+        total: document.getElementById("s25_total"),
+        perPerson: document.getElementById("s25_perPerson"),
+        tbody: document.querySelector("#s25_table tbody"),
+        sumPers: document.getElementById("s25_sumPers"),
+        sumTax: document.getElementById("s25_sumTax"),
+        sumContr: document.getElementById("s25_sumContr"),
+        sumDiff: document.getElementById("s25_sumDiff"),
+        status: document.getElementById("s25_status"),
+        transfers: document.getElementById("s25_transfers"),
+      };
+
+      const buildS25 = () => {
+        s25.tbody.innerHTML = "";
+        for (const p of d25.participants) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${p.name}</td>
+            <td class="num"><input data-p25="${p.name}" class="mono" inputmode="decimal" value="${p.paid}" style="width:120px" /></td>
+            <td class="num mono" data-tax25="${p.name}">—</td>
+            <td class="num mono" data-con25="${p.name}">—</td>
+            <td class="num mono" data-dif25="${p.name}">—</td>`;
+          s25.tbody.appendChild(tr);
+        }
+      };
+
+      const computeTransfers = (diffs) => {
+        const cr = diffs.filter(d => d.diff > 0.005).map(d => ({...d, amt: d.diff})).sort((a,b) => b.amt - a.amt);
+        const db = diffs.filter(d => d.diff < -0.005).map(d => ({...d, amt: -d.diff})).sort((a,b) => b.amt - a.amt);
+        const out = []; let i = 0, j = 0;
+        while (i < db.length && j < cr.length) {
+          const x = Math.min(db[i].amt, cr[j].amt);
+          if (x > 0.005) out.push({ from: db[i].name, to: cr[j].name, amount: round2(x) });
+          db[i].amt = round2(db[i].amt - x); cr[j].amt = round2(cr[j].amt - x);
+          if (db[i].amt <= 0.005) i++; if (cr[j].amt <= 0.005) j++;
+        }
+        return out;
+      };
+
+      const renderTransfers = (el, transfers) => {
+        el.innerHTML = "";
+        if (!transfers.length) { el.innerHTML = `<tr><td class="muted" colspan="3">Žádné převody.</td></tr>`; return; }
+        for (const t of transfers) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${t.from}</td><td>${t.to}</td><td class="num mono">${fmt(t.amount)} Kč</td>`;
+          el.appendChild(tr);
+        }
+      };
+
+      const calcS25 = () => {
+        const inclTax = s25.inclTax.checked;
+        const leftVal = parse(s25.leftover.value || "0") || 0;
+        const useLeft = s25.useLeft.checked;
+        let sumP = 0, sumT = 0, sumC = 0;
+        const diffs = [];
+
+        for (const p of d25.participants) {
+          const inp = s25.tbody.querySelector(`[data-p25="${p.name}"]`);
+          const pv = parse(inp?.value || "0") || 0;
+          sumP += pv;
+          const tv = inclTax && p.name === "Terka" ? d25.tax : 0;
+          sumT += tv;
+          const con = pv + tv;
+          sumC += con;
+          diffs.push({ name: p.name, contrib: con });
+
+          const taxEl = s25.tbody.querySelector(`[data-tax25="${p.name}"]`);
+          if (taxEl) taxEl.textContent = tv ? `${fmt(tv)} Kč` : "—";
+          const conEl = s25.tbody.querySelector(`[data-con25="${p.name}"]`);
+          if (conEl) conEl.textContent = `${fmt(con)} Kč`;
+        }
+
+        const total = sumC - (useLeft ? leftVal : 0);
+        const pp = total / d25.participants.length;
+        s25.total.textContent = `${fmt(total)} Kč`;
+        s25.perPerson.textContent = `${fmt(pp)} Kč`;
+
+        let sumD = 0;
+        for (const d of diffs) {
+          d.diff = d.contrib - pp;
+          sumD += d.diff;
+          const el = s25.tbody.querySelector(`[data-dif25="${d.name}"]`);
+          if (el) {
+            el.textContent = `${fmt(d.diff)} Kč`;
+            el.classList.remove("good", "bad", "muted");
+            el.classList.add(d.diff > 0.01 ? "good" : d.diff < -0.01 ? "bad" : "muted");
+          }
+        }
+
+        s25.sumPers.textContent = `${fmt(sumP)} Kč`;
+        s25.sumTax.textContent = `${fmt(sumT)} Kč`;
+        s25.sumContr.textContent = `${fmt(sumC)} Kč`;
+        s25.sumDiff.textContent = `${fmt(round2(sumD))} Kč`;
+
+        const diffsCopy = diffs.map(d => ({ name: d.name, diff: round2(d.diff) }));
+        const personTransfers = computeTransfers(diffsCopy);
+        renderTransfers(s25.transfers, personTransfers);
+
+        const accBlock = document.getElementById("s25_accountBlock");
+        const accBody = document.getElementById("s25_accountTransfers");
+        const usedLeftover = useLeft ? leftVal : 0;
+
+        if (usedLeftover > 0.01) {
+          const transferredByPersons = {};
+          for (const t of personTransfers) {
+            transferredByPersons[t.to] = (transferredByPersons[t.to] || 0) + t.amount;
+          }
+          const accTransfers = [];
+          for (const d of diffs) {
+            if (d.diff > 0.005) {
+              const alreadyGot = transferredByPersons[d.name] || 0;
+              const remaining = round2(d.diff - alreadyGot);
+              if (remaining > 0.005) accTransfers.push({ name: d.name, amount: remaining });
+            }
+          }
+          if (accTransfers.length > 0) {
+            accBlock.style.display = "block";
+            accBody.innerHTML = "";
+            let accSum = 0;
+            for (const a of accTransfers) {
+              accSum += a.amount;
+              const tr = document.createElement("tr");
+              tr.innerHTML = `<td class="muted">Účet (Terka)</td><td>${a.name}</td><td class="num mono">${fmt(a.amount)} Kč</td>`;
+              accBody.appendChild(tr);
+            }
+            const sumTr = document.createElement("tr");
+            sumTr.innerHTML = `<td></td><td><b>Celkem z účtu</b></td><td class="num mono"><b>${fmt(round2(accSum))} Kč</b></td>`;
+            accBody.appendChild(sumTr);
+          } else {
+            accBlock.style.display = "none";
+          }
+        } else {
+          accBlock.style.display = "none";
+        }
+
+        s25.status.textContent = useLeft && usedLeftover > 0
+          ? `Převody mezi osobami + výplaty z účtu (${fmt(usedLeftover)} Kč) pokrývají zbylé přeplatky.`
+          : "Návrh převodů, aby každá zaplatila stejný podíl.";
+        s25.status.className = "tiny good";
+
+        const summaryEl = document.getElementById("s25_summaryContent");
+        const summaryNote = document.getElementById("s25_summaryNote");
+        let html = "";
+        for (const t of personTransfers) {
+          html += `<div class="action-item"><span class="action-arrow">→</span>
+            <span><b>${t.from}</b> pošle <b>${t.to}</b></span>
+            <span class="action-amount">${fmt(t.amount)} Kč</span></div>`;
+        }
+        if (useLeft && usedLeftover > 0.01) {
+          const transferredByPersons = {};
+          for (const t of personTransfers) {
+            transferredByPersons[t.to] = (transferredByPersons[t.to] || 0) + t.amount;
+          }
+          const accItems = [];
+          for (const d of diffs) {
+            if (d.diff > 0.005) {
+              const alreadyGot = transferredByPersons[d.name] || 0;
+              const remaining = round2(d.diff - alreadyGot);
+              if (remaining > 0.005) accItems.push({ name: d.name, amount: remaining });
+            }
+          }
+          if (accItems.length > 0) {
+            html += `<div class="action-item" style="border-top: 2px dashed rgba(255,255,255,.1); padding-top: 12px; margin-top: 4px">
+              <span class="action-arrow" style="color: #fbbf24">●</span>
+              <span style="font-weight: 700; color: #fbbf24">Z účtu (9 660 Kč, drží Terka):</span></div>`;
+            for (const a of accItems) {
+              html += `<div class="action-item" style="padding-left: 30px">
+                <span class="action-arrow">→</span>
+                <span>Terka pošle z účtu → <b>${a.name}</b></span>
+                <span class="action-amount">${fmt(a.amount)} Kč</span></div>`;
+            }
+          }
+          summaryNote.textContent = `Zůstatek ${fmt(usedLeftover)} Kč z účtu se použije na vyrovnání. Po těchto převodech je rok 2025 uzavřen.`;
+        } else {
+          summaryNote.textContent = `Zůstatek ${fmt(leftVal)} Kč zůstává na účtu a převede se do roku 2026. Po převodech výše je rok 2025 uzavřen.`;
+        }
+        if (!personTransfers.length && (!useLeft || usedLeftover < 0.01)) {
+          html = `<div class="action-item"><span class="action-arrow">✓</span><span>Všechno vyrovnáno, žádné převody.</span></div>`;
+        }
+        summaryEl.innerHTML = html;
+      };
+
+      buildS25();
+      ["s25_inclTax", "s25_useLeft"].forEach(id => document.getElementById(id).addEventListener("change", calcS25));
+      document.getElementById("s25_leftover").addEventListener("input", calcS25);
+      s25.tbody.addEventListener("input", calcS25);
+      calcS25();
+
+      /* ═══ 2026 Bilance ═══ */
+      const calcB26 = () => {
+        const acc = parse(document.getElementById("b26_account").value) || 0;
+        const more = parse(document.getElementById("b26_moreIncome").value) || 0;
+        const totalExp = d26.performersCost + d26.fixedCostDPH + d26.advisorFee;
+        const totalExpNoDPH = d26.performersCost + d26.fixedCostBezDPH + d26.advisorFee;
+        const result = acc + more - totalExp;
+        const resultDPH = acc + more - totalExpNoDPH;
+        const resultNoPerf = acc + more - d26.fixedCostDPH - d26.advisorFee;
+
+        const rEl = document.getElementById("b26_result");
+        rEl.textContent = `${fmt(result)} Kč`;
+        rEl.classList.remove("good", "bad"); rEl.classList.add(result >= 0 ? "good" : "bad");
+
+        const rdEl = document.getElementById("b26_resultDPH");
+        rdEl.textContent = `${fmt(resultDPH)} Kč`;
+        rdEl.classList.remove("good", "bad"); rdEl.classList.add(resultDPH >= 0 ? "good" : "bad");
+
+        const rpEl = document.getElementById("b26_resultNoPerf");
+        rpEl.textContent = `${fmt(resultNoPerf)} Kč`;
+        rpEl.classList.remove("good", "bad"); rpEl.classList.add(resultNoPerf >= 0 ? "good" : "bad");
+
+        document.getElementById("b26_hint").textContent =
+          result >= 0 ? "Jsme v plusu (i s performery a DPH)." :
+          resultDPH >= 0 ? `S DPH v mínusu o ${fmt(Math.abs(result))} Kč, ale přes plátce DPH v plusu (${fmt(resultDPH)} Kč).` :
+          resultNoPerf >= 0 ? `V mínusu o ${fmt(Math.abs(result))} Kč. Přes plátce DPH: ${fmt(resultDPH)} Kč. Bez performerů: v plusu.` :
+          `Chybí ${fmt(Math.abs(result))} Kč. Přes plátce DPH: ${fmt(resultDPH)} Kč. I bez performerů: ${fmt(resultNoPerf)} Kč.`;
+      };
+
+      ["b26_account", "b26_moreIncome"].forEach(id => document.getElementById(id).addEventListener("input", calcB26));
+      calcB26();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+# Labyrint – Budget Report 2025 / 2026
+
+Tento report obsahuje dva oddělené celky: **rok 2025** (uzavřené vyúčtování) a **rok 2026** (aktivní plánování). Roky se neprolínají.
+
+---
+
+# ROK 2025 – UZAVŘENO
+
+Účastnice: **Terka / Vendy / Eliška / Petra** (4 osoby). Zdroj: záložka `Budget`.
+
+## 1) Ověřená čísla
+
+- **Celkem výdaje (Cena)**: **205 564 Kč**
+- **Sponzoring (minusové položky)**: **70 000 Kč**
+  - minus Flagranti: 50 000 Kč
+  - minus Notino: 20 000 Kč
+- **Náklady celkem (výdaje − sponzoring)**: **135 564 Kč**
+- **Příjem na účtu (vstupné)**: **74 466,50 Kč**
+- **Rozdíl (kolik chybí)**: **−61 097,50 Kč**
+- **DAŇ 14 287 Kč** – Terka musí zaplatit daň z příjmu Labyrintu za rok 2025 (zatím nezaplaceno). Společný náklad, dělí se rovným dílem mezi 4.
+
+## 2) Rozpad výdajů podle plátce (součet = 205 564 Kč)
+
+- **Terka**: **16 101 Kč** – DJ Danjela 1 250; DJ Stefunno 1 250; Miss Cool Cat 13 601
+- **Vendy**: **9 413 Kč** – Síť 6 000; Wix 2 250; Instagram 1 163
+- **Eliška**: **12 816 Kč** – Vestibul brigádníci 1 000; Technika DJs 1 500; cesťáky 609 + 1 522; Dekorace 8 185
+- **Petra**: **16 325 Kč** – Ochranka 15 500; Facebook 825
+- **Z účtu**: **86 622 Kč** – SDL 60 000; Nábytek 10 000; SimpleShop 3 122; Kříž 1 500; O. Monhart 12 000
+- **Flagranti (přímá platba)**: **50 000 Kč** – Pronájem prostoru Futureum
+
+Součty berou jen sloupec `Cena` (sloupec `Ubytování` se nepřičítá).
+
+## 3) Vyrovnání 2025 – interně mezi 4 účastnicemi
+
+Účet „Z účtu" byl zřízený jen pro Labyrint a nešly na něj vaše vklady. Vyrovnání se dělá z **osobních plateb** (out-of-pocket).
+
+### Vstupní data
+
+- Osobní platby: Terka 16 101 / Vendy 9 413 / Eliška 12 816 / Petra 16 325 = **54 655 Kč**
+- Zůstatek na účtu po 2025: **9 660 Kč** (na jméno Terezy)
+- Volitelně: daň 14 287 (interní dohoda)
+
+### DOPORUČENÁ VARIANTA: s daní 14 287, se zůstatkem 9 660
+
+> Daň 14 287 Kč je reálný výdaj Labyrintu, který Terka musí zaplatit — zatím nezaplaceno.
+> Dělí se rovným dílem mezi všechny 4.
+
+- Ke sdílení: 54 655 + 14 287 − 9 660 = **59 282 Kč**
+- Podíl na osobu: **14 820,50 Kč**
+- Převody mezi osobami:
+  - **Vendy → Terka: 5 407,50 Kč**
+  - **Eliška → Terka: 2 004,50 Kč**
+- Výplaty z účtu (zůstatek 9 660 Kč, drží Terka):
+  - Účet → Terka: **8 155,50 Kč** (nechá si z účtu)
+  - Účet → Petra: **1 504,50 Kč**
+  - Celkem z účtu: **9 660 Kč** ✓
+
+**Po těchto převodech je rok 2025 uzavřen.**
+
+---
+
+### Alternativní varianty (v HTML kalkulačce lze přepínat):
+
+**Varianta B: s daní 14 287, BEZ zůstatku (zůstatek se převede do 2026)**
+
+- Ke sdílení: 54 655 + 14 287 = **68 942 Kč**
+- Podíl na osobu: **17 235,50 Kč**
+- Převody:
+  - Vendy → Terka: **7 822,50 Kč**
+  - Eliška → Terka: **4 419,50 Kč**
+  - Petra → Terka: **910,50 Kč**
+
+**Varianta C: bez daně, se zůstatkem 9 660**
+
+- Ke sdílení: 54 655 − 9 660 = **44 995 Kč**
+- Podíl na osobu: **11 248,75 Kč**
+- Převody: Vendy → Petra: 1 835,75 Kč
+- Z účtu: → Petra 3 240,50 / → Terka 4 852,25 / → Eliška 1 567,25
+
+**Varianta D: bez daně, BEZ zůstatku**
+
+- Ke sdílení: **54 655 Kč**
+- Podíl na osobu: **13 663,75 Kč**
+- Převody: Vendy → Petra 2 661,25 / Vendy → Terka 1 589,50 / Eliška → Terka 847,75
+
+Interaktivní kalkulačka (se všemi variantami a editovatelnými částkami) je v HTML reportu.
+
+---
+
+# ROK 2026 – AKTIVNÍ
+
+Účastnice: **Terka / Vendy / Eliška / Petra / Karolína** (5 osob). Akce: **18. 4. 2026**.
+
+## 4) Stav účtu (z CSV, účet 2203369034)
+
+Vstupenky na akci 2026 se začaly prodávat v prosinci 2025.
+
+- **Příjmy ze vstupenek** (prosinec 2025 – 1. 4. 2026): **153 030 Kč**
+  - 2025 část: 23 760 | 2026 část: 129 270
+- **SimpleShop + bankovní poplatky**: **−8 128 Kč**
+- **Čistý stav na účtu**: **144 902 Kč** (ke dni 1. 4. 2026)
+
+## 5) Plánovaný budget 2026
+
+### Performeři (zrušitelní) – celkem 89 000 Kč (vč. ubytka a cesty)
+
+| Jméno | Téma | Honorář | Ubytko | Cesta | Celkem |
+|---|---|---:|---:|---:|---:|
+| Aran Mars | Boylesque | 12 000 | 1 000 | 1 000 | 14 000 |
+| Ivy Kolcun | Na stuhách | 10 000 | — | 1 000 | 11 000 |
+| Terezie Kovalová | Violoncello | 30 000 | — | 1 000 | 31 000 |
+| DJ Neomi | DJ | 5 000 | — | — | 5 000 |
+| DJ Stefunno | DJ | 5 000 | — | — | 5 000 |
+| DJ Danjela | DJ | 5 000 | — | — | 5 000 |
+| Lucie Stonavská | Fire, UV, Pole | 10 000 | — | — | 10 000 |
+| Markéta Houslistka | Houslistka | 3 000 | — | — | 3 000 |
+| DJ Radovan | DJ | 5 000 | — | — | 5 000 |
+| **Celkem** | | **85 000** | **1 000** | **3 000** | **89 000** |
+
+Odhady: ubytko = 1 000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1 000 Kč zpáteční.
+Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka).
+
+### Fixní náklady (nezrušitelné) – celkem ~199 513 bez DPH / ~229 631 s DPH
+
+| Druh | Cena | Cena s DPH | Poznámka |
+|---|---:|---:|---|
+| Pronájem | 50 000 | 60 500 | |
+| Zvuk + Světla | 70 000 | 84 700 | |
+| Security | 13 896 | 16 814 | 6 osob/10h, 350 Kč/h |
+| Vestibul Interiér/doprava | 18 000 | 20 000 | DPH 2 000 uvnitř |
+| Video | 8 000 | 8 000 | |
+| WEB (11 měsíců) | 5 000 | 5 000 | Placeno Vendy |
+| Fcb reklama | 15 705 | 15 705 | Placeno Petra |
+| FB Reklama Kristýna | 6 412 | 6 412 | |
+| OSA (autorská práva) | ~10 000 | ~10 000 | Odhad |
+| SimpleShop poplatek | ~2 500 | ~2 500 | Odhad za duben (květnová faktura) |
+
+### Daňový poradce: 6 500 Kč
+
+### Analýza DPH – úspora přes plátce DPH
+
+Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **30 118 Kč**:
+
+| Položka | Bez DPH | S DPH | DPH (úspora) |
+|---|---:|---:|---:|
+| Pronájem | 50 000 | 60 500 | **10 500** |
+| Zvuk + Světla | 70 000 | 84 700 | **14 700** |
+| Security | 13 896 | 16 814 | **2 918** |
+| Vestibul Interiér | 18 000 | 20 000 | **2 000** |
+| **Celkem** | | | **30 118** |
+
+## 6) Bilance 2026
+
+| Položka | Částka |
+|---|---:|
+| Na účtu teď | 144 902 |
+| **Výdaje celkem (s DPH)** | **~325 131** |
+| — z toho performeři vč. ubytka/cesty | 89 000 |
+| — z toho fixní (s DPH) | ~229 631 |
+| — z toho daňový poradce | 6 500 |
+| **Výsledek (s DPH)** | **~−180 229** |
+| **Výsledek (přes plátce DPH)** | **~−150 111** |
+| Výsledek BEZ performerů | ~−91 229 |
+
+Přes plátce DPH ušetříte 30 118 Kč. Bez dalších příjmů to nevychází. Sledujte bilanci v HTML kalkulačce.
+
+## 7) Soubory
+
+- HTML report (interaktivní): `G:\Můj disk\Labyrint\Budget Report\budget_report_labyrint.html`
+- Tento Markdown: `G:\Můj disk\Labyrint\Budget Report\budget_report_labyrint.md`
+- Pohyby na účtu (CSV): `G:\Můj disk\Labyrint\Budget Report\Pohyby_na_uctu-2203369034_20230101-20260401.csv`
