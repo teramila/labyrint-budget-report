@@ -95,10 +95,9 @@ Interaktivní kalkulačka (se všemi variantami a editovatelnými částkami) je
 
 Vstupenky na akci 2026 se začaly prodávat v prosinci 2025.
 
-- **Příjmy ze vstupenek** (prosinec 2025 – 1. 4. 2026): **153 030 Kč**
-  - 2025 část: 23 760 | 2026 část: 129 270
-- **SimpleShop + bankovní poplatky**: **−8 128 Kč**
-- **Čistý stav na účtu**: **144 902 Kč** (ke dni 1. 4. 2026)
+- **Příjmy ze vstupenek** (aktuální součet prodaných vstupenek): **175 422 Kč**
+- **SimpleShop + bankovní poplatky** (odhad ve stejném poměru jako u výpisu k 1. 4.): **−9 315 Kč** — po stažení nového CSV z účtu přepiš přesně.
+- **Čistý stav na účtu** (odhad: příjmy vstupného − poplatky): **166 107 Kč**
 
 **Další očekávané příjmy (dle Elišky, mimo účet zatím):**
 
@@ -160,7 +159,7 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 
 | Položka | Částka |
 |---|---:|
-| Na účtu teď | 144 902 |
+| Na účtu teď | 166 107 |
 | + Catering (očekáváno) | 30 000 |
 | + Notino (očekáváno) | 10 000 |
 | + Další vstupné | (doplň v HTML) |
@@ -168,8 +167,8 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 | — z toho performeři vč. ubytka/cesty | 79 000 |
 | — z toho fixní (s DPH) | ~199 156 |
 | — z toho daňový poradce | 6 500 |
-| **Výsledek (s DPH), jen účet + catering + Notino** | **~−101 754** |
-| **Výsledek (přes plátce DPH), totéž** | **~−70 330** |
+| **Výsledek (s DPH), jen účet + catering + Notino** | **~−80 549** |
+| **Výsledek (přes plátce DPH), totéž** | **~−49 125** |
 
 Přes plátce DPH ušetříte 29 424 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit). Prodeje „přes Prostě město“ (nebo jiný kanál) lze v HTML přičíst v poli dalšího vstupného, až budeš mít číslo.
 

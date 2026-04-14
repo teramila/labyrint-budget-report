@@ -421,19 +421,19 @@
             <h2>Stav účtu (pohyby ze CSV, účet 2203369034)</h2>
             <div class="kpis">
               <div class="kpi">
-                <div class="label">Příjmy ze vstupenek (prosinec 2025 – 1. 4. 2026)</div>
-                <div class="value good">153&nbsp;030 Kč</div>
-                <div class="sub">2025 část: 23&nbsp;760 | 2026 část: 129&nbsp;270</div>
+                <div class="label">Příjmy ze vstupenek (aktuální součet prodaných vstupenek)</div>
+                <div class="value good">175&nbsp;422 Kč</div>
+                <div class="sub">Rozpad 2025 / 2026 dle SimpleShop — doplň po exportu, pokud ho potřebuješ v řádku.</div>
               </div>
               <div class="kpi">
                 <div class="label">SimpleShop poplatky + bankovní poplatky</div>
-                <div class="value bad">−8&nbsp;128 Kč</div>
-                <div class="sub">2025: −539 | 2026: −7&nbsp;589</div>
+                <div class="value bad">−9&nbsp;315 Kč</div>
+                <div class="sub">Odhad: stejný podíl poplatků jako u výpisu k 1.&nbsp;4. (−8&nbsp;128 z 153&nbsp;030). Po novém CSV z účtu přepiš.</div>
               </div>
               <div class="kpi">
-                <div class="label">Čistý stav na účtu</div>
-                <div class="value">144&nbsp;902 Kč</div>
-                <div class="sub">= příjmy − poplatky (ke dni 1. 4. 2026)</div>
+                <div class="label">Čistý stav na účtu (odhad)</div>
+                <div class="value">166&nbsp;107 Kč</div>
+                <div class="sub">= 175&nbsp;422 − 9&nbsp;315. Ověř zůstatek přímo v bance / po exportu pohybů.</div>
               </div>
             </div>
             <div class="note" style="margin-top: 10px">
@@ -546,8 +546,8 @@
               <tbody>
                 <tr>
                   <td><b>Na účtu teď</b> (z CSV)</td>
-                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="144902" style="width:140px" /></td>
-                  <td class="muted">Upravitelné (pokud se CSV mezitím změnilo)</td>
+                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="166107" style="width:140px" /></td>
+                  <td class="muted">Výchozí 166&nbsp;107 = vstupné 175&nbsp;422 − odhad poplatků 9&nbsp;315; po CSV upřesni.</td>
                 </tr>
                 <tr class="muted"><td colspan="3" style="padding: 4px 10px; font-size: 12px; font-weight: 700">DALŠÍ OČEKÁVANÉ PŘÍJMY</td></tr>
                 <tr>
@@ -677,7 +677,7 @@
 
       /* ── 2026 Data ── */
       const d26 = {
-        accountFromCSV: 144902,
+        accountFromCSV: 166107,
         performersCost: 79000,
         fixedCostDPH: 199156,
         fixedCostBezDPH: 169732,
