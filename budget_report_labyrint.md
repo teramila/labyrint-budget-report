@@ -127,14 +127,14 @@ V HTML kalkulačce jsou v bilanci jako editovatelné položky (spolu s dalším 
 Odhady: ubytko = 1 000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1 000 Kč zpáteční.
 Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **zdarma**, domluva přes Prostě se hýbej (Kája); samostatná položka „Video“ v budgetu není.
 
-### Fixní náklady (nezrušitelné) – celkem ~184 013 bez DPH / ~214 656 s DPH (bez videa)
+### Fixní náklady (nezrušitelné) – celkem ~169 732 bez DPH / ~199 156 s DPH (bez videa)
 
 | Druh | Cena | Cena s DPH | Poznámka |
 |---|---:|---:|---|
-| Pronájem | 50 000 | 60 500 | |
+| Pronájem (Futureum) | 41 322 | 50 000 | 50 000 vč. DPH (21 %) |
 | Zvuk + Světla | 70 000 | 84 700 | |
 | Security | 13 896 | 16 814 | 6 osob/10h, 350 Kč/h |
-| Vestibul Interiér/doprava | 18 000 | 20 000 | DPH 2 000 uvnitř |
+| Vestibul Interiér/doprava | 12 397 | 15 000 | 15 000 vč. DPH (21 %) |
 | WEB (11 měsíců) | 5 000 | 5 000 | Placeno Vendy |
 | Fcb reklama | 15 705 | 15 705 | Placeno Petra |
 | FB Reklama Kristýna | 6 412 | 6 412 | |
@@ -145,16 +145,16 @@ Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **
 
 ### Analýza DPH – úspora přes plátce DPH
 
-Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **30 643 Kč**:
+Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **29 424 Kč**:
 
 | Položka | Bez DPH | S DPH | DPH (úspora) |
 |---|---:|---:|---:|
-| Pronájem | 50 000 | 60 500 | **10 500** |
+| Pronájem (Futureum) | 41 322 | 50 000 | **8 678** |
 | Zvuk + Světla | 70 000 | 84 700 | **14 700** |
 | Security | 13 896 | 16 814 | **2 918** |
-| Vestibul Interiér | 18 000 | 20 000 | **2 000** |
+| Vestibul Interiér | 12 397 | 15 000 | **2 603** |
 | Dovoz SofaAH | 2 500 | 3 025 | **525** |
-| **Celkem** | | | **30 643** |
+| **Celkem** | | | **29 424** |
 
 ## 6) Bilance 2026
 
@@ -164,14 +164,14 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 | + Catering (očekáváno) | 30 000 |
 | + Notino (očekáváno) | 10 000 |
 | + Další vstupné | (doplň v HTML) |
-| **Výdaje celkem (s DPH)** | **~300 156** |
+| **Výdaje celkem (s DPH)** | **~286 656** |
 | — z toho performeři vč. ubytka/cesty | 79 000 |
-| — z toho fixní (s DPH) | ~214 656 |
+| — z toho fixní (s DPH) | ~199 156 |
 | — z toho daňový poradce | 6 500 |
-| **Výsledek (s DPH), jen účet + catering + Notino** | **~−115 254** |
-| **Výsledek (přes plátce DPH), totéž** | **~−84 611** |
+| **Výsledek (s DPH), jen účet + catering + Notino** | **~−101 754** |
+| **Výsledek (přes plátce DPH), totéž** | **~−70 330** |
 
-Přes plátce DPH ušetříte 30 643 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit).
+Přes plátce DPH ušetříte 29 424 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit). Prodeje „přes Prostě město“ (nebo jiný kanál) lze v HTML přičíst v poli dalšího vstupného, až budeš mít číslo.
 
 V **HTML** je pod bilancí sekce **„Na nulu — kolik ještě vydělat vstupným“**: u každého scénáře je **částka navíc** v Kč a zvlášť velkým číslem **počet vstupenek na nulu** (skloňování 1 vstupenka / 2–4 vstupenky / 5+ vstupenek), při **výchozí ceně 1 290 Kč** (upravitelné). Počet se zaokrouhluje nahoru, aby pokryl celý doplatek.
 
