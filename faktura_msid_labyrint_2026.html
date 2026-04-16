@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Faktura – Tanec v Labyrintu, z.s. → MSID a.s.</title>
+    <style>
+      :root {
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --bg: #ffffff;
+        --chip: #f3f4f6;
+        --accent: #111827;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      }
+
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: #f6f7fb;
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      .page {
+        max-width: 920px;
+        margin: 24px auto;
+        padding: 18px;
+      }
+
+      .paper {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+      }
+
+      .topbar {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+
+      .title {
+        display: grid;
+        gap: 6px;
+      }
+      .title h1 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: 0.3px;
+      }
+      .title .sub {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--chip);
+        color: var(--text);
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 800;
+        font-size: 12px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+      }
+      .btn:hover { filter: brightness(0.98); }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 760px) {
+        .grid2 { grid-template-columns: 1fr; }
+        .paper { padding: 18px; }
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 14px;
+        overflow: hidden;
+      }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 0.35px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .kv {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 6px 12px;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+      .kv .k { color: var(--muted); }
+      .mono { font-family: var(--mono); }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--chip);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-variant-numeric: tabular-nums;
+        margin-top: 14px;
+      }
+      th, td {
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+        font-size: 13px;
+      }
+      th {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 800;
+        background: #fafafa;
+      }
+      td.num, th.num { text-align: right; font-family: var(--mono); }
+      tfoot td { font-weight: 900; }
+
+      .note {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .footer {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--border);
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .qr {
+        border: 1px dashed var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        min-width: 220px;
+        background: #fff;
+      }
+      .qr .label {
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .qr .placeholder {
+        height: 140px;
+        border-radius: 10px;
+        background: repeating-linear-gradient(
+          45deg,
+          #f3f4f6,
+          #f3f4f6 10px,
+          #fafafa 10px,
+          #fafafa 20px
+        );
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+      }
+
+      /* Print */
+      @page { size: A4; margin: 12mm; }
+      @media print {
+        body { background: #fff; }
+        .page { margin: 0; padding: 0; max-width: none; }
+        .paper { border: none; border-radius: 0; box-shadow: none; padding: 0; }
+        .actions { display: none !important; }
+        .qr { border-style: solid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="paper">
+        <div class="topbar">
+          <div class="title">
+            <h1>Faktura</h1>
+            <div class="sub">
+              Šablona pro rychlé vystavení a uložení do PDF. Pozn.: <span class="chip">Nejsme plátci DPH</span>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn" onclick="window.print()">Tisk / uložit jako PDF</button>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h2>Dodavatel (vystavitel)</h2>
+            <div class="kv">
+              <div class="k">Název</div><div><b>Tanec v Labyrintu, z.s.</b></div>
+              <div class="k">Adresa</div><div>1095, Vendryně<br><span class="mono">73994</span> Vendryně<br>Česká republika</div>
+              <div class="k">IČO</div><div class="mono">23860910</div>
+              <div class="k">DIČ</div><div class="muted">— (neplátce DPH)</div>
+              <div class="k">E‑mail</div><div class="muted">doplň</div>
+              <div class="k">Telefon</div><div class="muted">doplň</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Odběratel</h2>
+            <div class="kv">
+              <div class="k">Název</div><div><b>Moravskoslezské Investice a Development, a.s.</b></div>
+              <div class="k">Adresa</div><div>Na Jízdárně 1245/7<br><span class="mono">702 00</span> Ostrava</div>
+              <div class="k">IČ</div><div class="mono">47673168</div>
+              <div class="k">DIČ</div><div class="mono">CZ47673168</div>
+              <div class="k">Kontaktní e‑mail</div><div class="mono">ozdincova@msid.cz</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid2" style="margin-top: 14px">
+          <div class="card">
+            <h2>Údaje faktury</h2>
+            <div class="kv">
+              <div class="k">Číslo faktury</div><div class="mono"><b>doplň</b></div>
+              <div class="k">Datum vystavení</div><div class="mono"><b>doplň</b></div>
+              <div class="k">Datum splatnosti</div><div class="mono"><b>doplň</b></div>
+              <div class="k">Forma úhrady</div><div>Převodem na účet</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Platební údaje</h2>
+            <div class="kv">
+              <div class="k">Číslo účtu</div><div class="mono"><b>2203369034/2010</b></div>
+              <div class="k">IBAN</div><div class="mono">CZ39 2010 0000 0022 0336 9034</div>
+              <div class="k">BIC / SWIFT</div><div class="mono">FIOBCZPPXXX</div>
+              <div class="k">Variabilní symbol</div><div class="mono"><b>16042026</b></div>
+              <div class="k">Specifický symbol</div><div class="muted">—</div>
+              <div class="k">Poznámka pro platbu</div><div class="muted">—</div>
+            </div>
+          </div>
+        </div>
+
+        <table aria-label="Položky">
+          <thead>
+            <tr>
+              <th>Položka</th>
+              <th class="num">Množství</th>
+              <th class="num">Cena / ks</th>
+              <th class="num">Cena celkem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Vstupné na umělecké vystoupení <b>Labyrint – dekadentní bál</b><br>
+                Datum akce: <span class="mono">18. 4. 2026</span><br>
+                Pro: Veroniku Tomáškovou a Lenku Haas
+              </td>
+              <td class="num">2 ks</td>
+              <td class="num">1&nbsp;490,00 Kč</td>
+              <td class="num">2&nbsp;980,00 Kč</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="num">Celkem k úhradě</td>
+              <td class="num">2&nbsp;980,00 Kč</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="note">
+          Nejsme plátci DPH. Částka je konečná. Pokud potřebujete doplnit další náležitosti (např. číslo objednávky / interní kód),
+          doplňte do poznámky nebo do „Údaje faktury“.
+        </div>
+
+        <div class="footer">
+          <div class="note" style="margin:0">
+            <b>Jak uložit do PDF:</b> otevři soubor v prohlížeči → „Sdílet / Tisk“ → „Uložit jako PDF“ (nebo „Save as PDF“).
+          </div>
+          <div class="qr" aria-label="QR platba">
+            <div class="label">QR platba (volitelné)</div>
+            <div class="placeholder" style="background: #fff; padding: 0; display: block">
+              <img
+                src="qr_platba_msid_16042026.png"
+                alt="QR platba"
+                style="display:block; width: 100%; height: auto; max-width: 220px; margin: 0 auto; border-radius: 10px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
