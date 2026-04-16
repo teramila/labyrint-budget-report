@@ -8,6 +8,7 @@ Soubory:
 
 - `budget_report_labyrint.html` — interaktivní report (**rok 2026** nahoře, **rok 2025** pod tím); bilance a vyrovnání 2025 se počítají v **JavaScriptu** v prohlížeči.
 - `budget_report_labyrint.md` — textová verze se stejným pořadím a čísly.
+- **`UCET-poznamky.md`** — **poznámky k účtu** (úpravy z mobilu přes GitHub); podle nich se pak aktualizuje HTML na PC.
 
 **Náhled:** soubor otevřený přímo přes raw view na github.com často **nespouští JavaScript** — uvidíš pomlčky místo dopočtů. Otevírej stránku přes Pages (`https://<user>.github.io/<repo>/budget_report_labyrint.html`).
 
