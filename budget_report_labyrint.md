@@ -104,24 +104,25 @@ Vstupenky na akci 2026 se začaly prodávat v prosinci 2025.
 - Catering: **30 000 Kč**
 - Notino (sponzoring): **10 000 Kč**
 
-V HTML kalkulačce jsou v bilanci jako editovatelné položky (spolu s dalším vstupným).
+V HTML kalkulačce jsou v bilanci jako editovatelné položky (spolu s dalším vstupným). **Na účtu teď** je zadáno jako stav **před** platbám z účtu; pole **Zaplaceno z účtu** (31 730 Kč = honorář Terezie 30 000 + ubytování 1 730) se odečte a do výpočtu vstupuje **efektivní stav účtu**.
 
 ## 5) Plánovaný budget 2026
 
-### Performeři (zrušitelní) – celkem 79 000 Kč (vč. ubytka a cesty; Lucie zdarma)
+### Performeři (zrušitelní) – celkem 80 730 Kč (vč. ubytka a cesty; Lucie zdarma)
 
-| Jméno | Téma | Honorář | Ubytko | Cesta | Celkem |
-|---|---|---:|---:|---:|---:|
-| Aran Mars | Boylesque | 12 000 | 1 000 | 1 000 | 14 000 |
-| Ivy Kolcun | Na stuhách | 10 000 | — | 1 000 | 11 000 |
-| Terezie Kovalová | Violoncello | 30 000 | — | 1 000 | 31 000 |
-| DJ Neomi | DJ | 5 000 | — | — | 5 000 |
-| DJ Stefunno | DJ | 5 000 | — | — | 5 000 |
-| DJ Danjela | DJ | 5 000 | — | — | 5 000 |
-| Lucie Stonavská | Fire, UV, Pole — přes **Prostě se hýbej** (Kája), **zdarma** | 0 | — | — | 0 |
-| Markéta Houslistka | Houslistka | 3 000 | — | — | 3 000 |
-| DJ Radovan | DJ | 5 000 | — | — | 5 000 |
-| **Celkem** | | **75 000** | **1 000** | **3 000** | **79 000** |
+| Jméno | Téma | Honorář | Ubytko | Cesta | Celkem | Stav |
+|---|---|---:|---:|---:|---:|---|
+| Aran Mars | Boylesque | 12 000 | 1 000 | 1 000 | 14 000 | Čeká |
+| Ivy Kolcun | Na stuhách | 10 000 | — | 1 000 | 11 000 | Čeká |
+| Terezie Kovalová | Violoncello | 30 000 | — | 1 000 | 31 000 | Zaplaceno (honorář) |
+| Ubytování (Terezie Kovalová) | faktura, dříve neplánováno | — | 1 730 | — | 1 730 | Zaplaceno |
+| DJ Neomi | DJ | 5 000 | — | — | 5 000 | Čeká |
+| DJ Stefunno | DJ | 5 000 | — | — | 5 000 | Čeká |
+| DJ Danjela | DJ | 5 000 | — | — | 5 000 | Čeká |
+| Lucie Stonavská | Fire, UV, Pole — přes **Prostě se hýbej** (Kája), **zdarma** | 0 | — | — | 0 | — |
+| Markéta Houslistka | Houslistka | 3 000 | — | — | 3 000 | Čeká |
+| DJ Radovan | DJ | 5 000 | — | — | 5 000 | Čeká |
+| **Celkem** | | **75 000** | **2 730** | **3 000** | **80 730** | |
 
 Odhady: ubytko = 1 000 Kč/noc (1 noc), cesta = 500 Kč/směr × 2 = 1 000 Kč zpáteční.
 Partneři (0 Kč): Klubovna (Shibari), Skandaal (Módní přehlídka). Lucie: **zdarma**, domluva přes Prostě se hýbej (Kája); samostatná položka „Video“ v budgetu není.
@@ -159,16 +160,18 @@ Pokud by faktury za položky s DPH šly přes plátce DPH, ušetříte celkem **
 
 | Položka | Částka |
 |---|---:|
-| Na účtu teď | 166 107 |
+| Na účtu teď (před platbám z účtu) | 166 107 |
+| − Zaplaceno z účtu (honorář Terezie + ubytování) | −31 730 |
+| = Efektivní stav účtu | 134 377 |
 | + Catering (očekáváno) | 30 000 |
 | + Notino (očekáváno) | 10 000 |
 | + Další vstupné | (doplň v HTML) |
-| **Výdaje celkem (s DPH)** | **~286 656** |
-| — z toho performeři vč. ubytka/cesty | 79 000 |
+| **Výdaje celkem (s DPH)** | **~288 386** |
+| — z toho performeři vč. ubytka/cesty | 80 730 |
 | — z toho fixní (s DPH) | ~199 156 |
 | — z toho daňový poradce | 6 500 |
-| **Výsledek (s DPH), jen účet + catering + Notino** | **~−80 549** |
-| **Výsledek (přes plátce DPH), totéž** | **~−49 125** |
+| **Výsledek (s DPH), jen efektivní účet + catering + Notino** | **~−112 009** |
+| **Výsledek (přes plátce DPH), totéž** | **~−82 585** |
 
 Přes plátce DPH ušetříte 29 424 Kč na fixních položkách s DPH. Přesné číslo bilance dopočítá HTML (vstupné lze doplnit). Prodeje „přes Prostě město“ (nebo jiný kanál) lze v HTML přičíst v poli dalšího vstupného, až budeš mít číslo.
 
