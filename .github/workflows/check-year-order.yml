@@ -18,6 +18,5 @@ jobs:
           node-version: "20"
 
       - name: Check year order
-        working-directory: Budget Report
         run: node scripts/check-year-order.js
 
