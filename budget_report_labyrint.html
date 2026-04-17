@@ -207,8 +207,8 @@
             <div class="kpis">
               <div class="kpi">
                 <div class="label">Kredity (příchozí) — vstupné a podobné příjmy</div>
-                <div class="value good">219&nbsp;384,50 Kč</div>
-                <div class="sub">Export pohybů účtu 2203369034 (1.&nbsp;10.&nbsp;2025 – 17.&nbsp;4.&nbsp;2026), stav k 17.&nbsp;4.&nbsp;2026. Rozpad kreditů: <b>2026</b> 195&nbsp;624,50 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
+                <div class="value good">220&nbsp;427,50 Kč</div>
+                <div class="sub">Základ z exportu účtu 2203369034 (1.&nbsp;10.&nbsp;2025 – 17.&nbsp;4.&nbsp;2026) + ručně doplněná vstupenka <b>1&nbsp;043 Kč</b>. Rozpad kreditů: <b>2026</b> 196&nbsp;667,50 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
               </div>
               <div class="kpi">
                 <div class="label">Záporné položky (poplatky, vrácení, …)</div>
@@ -217,12 +217,12 @@
               </div>
               <div class="kpi">
                 <div class="label">Čistý stav na účtu</div>
-                <div class="value">209&nbsp;526,50 Kč</div>
-                <div class="sub">= 219&nbsp;384,50 − 9&nbsp;858 (CSV k 17.&nbsp;4.&nbsp;2026)</div>
+                <div class="value">210&nbsp;569,50 Kč</div>
+                <div class="sub">= 220&nbsp;427,50 − 9&nbsp;858 (záporné beze změny dle posledního exportu)</div>
               </div>
             </div>
             <div class="note" style="margin-top: 10px">
-              Zdroj: <span class="mono">Pohyby_na_uctu-2203369034_20251001-20260417.csv</span> — výpis jednoho účtu (2203369034).
+              Zdroj: <span class="mono">Pohyby_na_uctu-2203369034_20251001-20260417.csv</span> — výpis jednoho účtu (2203369034); kredity a čistý stav výše navíc obsahují <b>1× vstupenku 1&nbsp;043 Kč</b> po tomto exportu (bez nového CSV).
               Toto je účet pro akci 2026 (vstupenky se začaly prodávat v prosinci 2025).
               Zůstatek 9&nbsp;660 Kč z akce 2025 je na jiném/starším účtu a řeší se ve vyrovnání 2025 níže.
             </div>
@@ -337,8 +337,8 @@
               <tbody>
                 <tr>
                   <td><b>Na účtu teď</b> (před platbám z účtu)</td>
-                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="209526,50" style="width:140px" /></td>
-                  <td class="muted">Výchozí 209&nbsp;526,50 Kč dle CSV k 17.&nbsp;4.&nbsp;2026 (součet všech pohybů v exportu).</td>
+                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="210569,50" style="width:140px" /></td>
+                  <td class="muted">Výchozí 210&nbsp;569,50 Kč (CSV k 17.&nbsp;4.&nbsp;2026 + vstupenka 1&nbsp;043 Kč po exportu).</td>
                 </tr>
                 <tr>
                   <td><b>Naplánované platby z účtu</b> (odečíst už teď)</td>
@@ -695,7 +695,7 @@
 
       /* ── 2026 Data ── */
       const d26 = {
-        accountFromCSV: 209526.5,
+        accountFromCSV: 210569.5,
         performersCost: 80730,
         fixedCostDPH: 201213,
         fixedCostBezDPH: 171432,
