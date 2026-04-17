@@ -422,22 +422,22 @@
             <div class="kpis">
               <div class="kpi">
                 <div class="label">Kredity (příchozí) — vstupné a podobné příjmy</div>
-                <div class="value good">188&nbsp;839,50 Kč</div>
-                <div class="sub">Filtr CSV: zdrojový účet 2203369034, stav k 16.&nbsp;4.&nbsp;2026. Rozpad kreditů: <b>2026</b> 165&nbsp;079,50 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
+                <div class="value good">206&nbsp;421,50 Kč</div>
+                <div class="sub">Filtr CSV: zdrojový účet 2203369034, stav k 17.&nbsp;4.&nbsp;2026. Rozpad kreditů: <b>2026</b> 182&nbsp;661,50 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
               </div>
               <div class="kpi">
                 <div class="label">Záporné položky (poplatky, vrácení, …)</div>
-                <div class="value bad">−9&nbsp;858,50 Kč</div>
+                <div class="value bad">−9&nbsp;858 Kč</div>
                 <div class="sub">Součet záporných částek na stejném účtu ve výpisu CSV (stejné období).</div>
               </div>
               <div class="kpi">
                 <div class="label">Čistý stav na účtu</div>
-                <div class="value">195&nbsp;073,50 Kč</div>
-                <div class="sub">Aktualizováno ručně (mimo CSV). Poslední výpočet z CSV k 16.&nbsp;4.&nbsp;2026: 178&nbsp;981,50 Kč (= 188&nbsp;839,50 − 9&nbsp;858,50).</div>
+                <div class="value">196&nbsp;563,50 Kč</div>
+                <div class="sub">= 206&nbsp;421,50 − 9&nbsp;858 (CSV k 17.&nbsp;4.&nbsp;2026)</div>
               </div>
             </div>
             <div class="note" style="margin-top: 10px">
-              Zdroj: <span class="mono">Pohyby_na_vsech_uctech_01.01.2023-16.04.2026.csv</span> — jen řádky se zdrojovým účtem 2203369034.
+              Zdroj: <span class="mono">Pohyby_na_vsech_uctech_01.10.2025-17.04.2026.csv</span> — jen řádky se zdrojovým účtem 2203369034.
               Toto je účet pro akci 2026 (vstupenky se začaly prodávat v prosinci 2025).
               Zůstatek 9&nbsp;660 Kč z akce 2025 je na jiném/starším účtu a řeší se ve vyrovnání 2025 níže.
             </div>
@@ -549,8 +549,8 @@
               <tbody>
                 <tr>
                   <td><b>Na účtu teď</b> (před platbám z účtu)</td>
-                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="195073,50" style="width:140px" /></td>
-                  <td class="muted">Ručně aktualizováno na 195&nbsp;073,50 Kč (nové prodeje po 16.&nbsp;4.). Základ z CSV k 16.&nbsp;4.&nbsp;2026 byl 178&nbsp;981,50 Kč.</td>
+                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="196563,50" style="width:140px" /></td>
+                  <td class="muted">Výchozí 196&nbsp;563,50 Kč dle CSV k 17.&nbsp;4.&nbsp;2026 (součet všech pohybů v exportu).</td>
                 </tr>
                 <tr>
                   <td><b>Naplánované platby z účtu</b> (odečíst už teď)</td>
@@ -690,7 +690,7 @@
 
       /* ── 2026 Data ── */
       const d26 = {
-        accountFromCSV: 195073.5,
+        accountFromCSV: 196563.5,
         performersCost: 80730,
         fixedCostDPH: 199156,
         fixedCostBezDPH: 169732,
