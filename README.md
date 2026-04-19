@@ -33,6 +33,8 @@ Soubor **`scripts/labyrint_postakce_checklist.gs`** je šablona pro **Google App
 
 **Poznámka:** opakované spuštění funkce **přepíše řádky 2+** v listu — odškrtnutí ve sloupci „Hotovo“ tím přijdeš. Po prvním vygenerování checklist raději upravuj přímo v tabulce, nebo si uprav pole `CHECKLIST_ROWS` ve skriptu a spusť znovu jen když chceš znovu založit strukturu.
 
+**Když běh „visí“ dlouho:** starší verze používaly `sh.clear()` a `autoResizeColumns` — obojí umí u Google trvat nepřiměřeně dlouho. Aktuální skript v repu maže jen potřebný obdelník a nastaví šířky sloupců ručně.
+
 ## Pořadí roků (důležité)
 
 V `budget_report_labyrint.html` musí být **ROK 2026 vždy nahoře** a **ROK 2025 vždy pod ním**.

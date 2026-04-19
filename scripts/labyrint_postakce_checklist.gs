@@ -55,7 +55,10 @@ function setupLabyrintPostAkceChecklist() {
   if (!sh) {
     sh = ss.insertSheet(SHEET_NAME);
   }
-  sh.clear();
+  // Nepoužívat sh.clear() — maže celou mřížku listu a u Apps Scriptu často trvá „věčnost“.
+  var clearRows = Math.max(sh.getLastRow(), 2 + CHECKLIST_ROWS.length, 20);
+  sh.getRange(1, 1, clearRows, HEADERS.length).clearContent();
+  sh.getRange(1, 1, 1, HEADERS.length).clearFormat();
   sh.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
   sh.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
   sh.setFrozenRows(1);
@@ -71,7 +74,11 @@ function setupLabyrintPostAkceChecklist() {
     // getRange(řádek, sloupec, počet_řádků, počet_sloupců) — ne „poslední řádek“
     sh.getRange(2, 1, data.length, HEADERS.length).setValues(data);
   }
-  sh.autoResizeColumns(1, HEADERS.length);
+  // autoResizeColumns bývá pomalé / „visí“ — nastavíme rozumné šířky ručně (sekundy místo minut).
+  var widths = [300, 100, 110, 70, 120, 360];
+  for (var c = 0; c < widths.length; c++) {
+    sh.setColumnWidth(c + 1, widths[c]);
+  }
   try {
     SpreadsheetApp.getUi().alert("Hotovo: list „" + SHEET_NAME + "“ má " + CHECKLIST_ROWS.length + " řádků checklistu.");
   } catch (e) {
