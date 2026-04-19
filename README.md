@@ -23,8 +23,9 @@ Soubory:
 
 Soubor **`scripts/labyrint_postakce_checklist.gs`** je šablona pro **Google Apps Script** — nevkládá se do GitHub Actions, ale do editoru skriptů u Google Sheetu.
 
-1. Vytvoř nový **Google Sheet** (nebo otevři prázdný existující).
-2. **Rozšíření → Apps Script** → smaž výchozí kód → vlož obsah souboru `labyrint_postakce_checklist.gs` z tohoto repa.
+1. Vytvoř nový **Google Sheet** (nebo otevři prázdný existující) — např. [sheet.new](https://sheet.new).
+2. V **té tabulce** (ne na script.google.com): **Rozšíření → Apps Script** → smaž výchozí kód → vlož obsah souboru `labyrint_postakce_checklist.gs` z tohoto repa.  
+   **Důležité:** skript musí být **vázaný na konkrétní Sheet**; samostatný projekt Apps Script nemá `getActiveSpreadsheet()` a hlásí chybu u `getSheetByName`.
 3. Ulož projekt (ikona disku), v horní liště vyber funkci **`setupLabyrintPostAkceChecklist`** a **Spustit** (▶).
 4. Při prvním běhu potvrď **oprávnění** v dialogu Googleu.
 5. Skript vytvoří list **„Post-akce“** s hlavičkou a řádky checklistu. Pak sheet **nasdílej** s kolegy (právo upravovat / komentovat dle potřeby).

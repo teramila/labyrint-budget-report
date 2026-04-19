@@ -3,7 +3,8 @@
  *
  * Použití:
  * 1) Vytvoř nový Google Sheet (nebo otevři existující prázdný).
- * 2) Rozšíření → Apps Script → smaž výchozí kód → vlož celý tento soubor.
+ * 2) Otevři **tu tabulku**, kde chceš checklist → **Rozšíření → Apps Script** → smaž výchozí kód → vlož celý tento soubor.
+ *    (Nepoužívej samostatný projekt z script.google.com — ten nemá „aktivní tabulku“ a skript spadne.)
  * 3) Ulož (disketa), v editoru vyber funkci setupLabyrintPostAkceChecklist a Spustit (▶).
  * 4) Při prvním běhu povol oprávnění v dialogu Googleu.
  *
@@ -44,6 +45,12 @@ var CHECKLIST_ROWS = [
 
 function setupLabyrintPostAkceChecklist() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) {
+    throw new Error(
+      "Není navázaná žádná tabulka. Otevři svoji Google Tabulku → Rozšíření → Apps Script a kód vlož tam. " +
+      "Samostatný projekt z script.google.com tady nefunguje."
+    );
+  }
   var sh = ss.getSheetByName(SHEET_NAME);
   if (!sh) {
     sh = ss.insertSheet(SHEET_NAME);
