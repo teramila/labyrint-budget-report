@@ -68,7 +68,8 @@ function setupLabyrintPostAkceChecklist() {
     data.push([r[0], odhad, skut, r[3] === true, r[4], r[5]]);
   }
   if (data.length) {
-    sh.getRange(2, 1, 1 + data.length, HEADERS.length).setValues(data);
+    // getRange(řádek, sloupec, počet_řádků, počet_sloupců) — ne „poslední řádek“
+    sh.getRange(2, 1, data.length, HEADERS.length).setValues(data);
   }
   sh.autoResizeColumns(1, HEADERS.length);
   try {
