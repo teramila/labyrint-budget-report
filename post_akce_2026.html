@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Labyrint 2026 – Po akci (rozcestník)</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.68);
+        --border: rgba(255, 255, 255, 0.14);
+        --panel: rgba(255, 255, 255, 0.06);
+        --y26: #8b5cf6;
+        --good: #22c55e;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        color: var(--text);
+        background: radial-gradient(900px 700px at 20% 0%, rgba(139, 92, 246, 0.2), transparent 55%), var(--bg);
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+      .note {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.55;
+        margin-bottom: 24px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+      }
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--y26);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      a.btn {
+        display: block;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        margin-bottom: 10px;
+        transition: background 0.15s;
+      }
+      a.btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      a.btn small {
+        display: block;
+        margin-top: 6px;
+        font-weight: 400;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .mono {
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .pill {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        background: rgba(34, 197, 94, 0.15);
+        border: 1px solid rgba(34, 197, 94, 0.35);
+        color: var(--good);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Labyrint 2026 – po akci</h1>
+        <p class="note">
+          Akce proběhla <b>18. 4. 2026</b>. Tato stránka je jen <b>rozcestník</b>: čísla a bilance jsou v hlavním reportu; společný checklist odhadů a úkolů je v
+          <b>Google Sheet</b> (vytvoříš ho podle návodu v README repa — skript <span class="mono">labyrint_postakce_checklist.gs</span>).
+        </p>
+      </header>
+
+      <div class="card">
+        <h2>Dokumenty</h2>
+        <a class="btn" href="./budget_report_labyrint.html">
+          Hlavní budget report
+          <small>Stav účtu z CSV, bilance 2026, DPH, vyrovnání 2025. JavaScript musí běžet (GitHub Pages).</small>
+        </a>
+        <a class="btn" href="#">
+          Checklist (Google Sheet)
+          <small>Po vytvoření tabulky sem vlož odkaz (uprav <span class="mono">href</span> tohoto tlačítka v <span class="mono">post_akce_2026.html</span> v repu).</small>
+        </a>
+      </div>
+
+      <div class="card">
+        <h2>Repo</h2>
+        <p class="note" style="margin: 0">
+          Zdrojové soubory: <a href="https://github.com/teramila/labyrint-budget-report" style="color: var(--y26)">teramila/labyrint-budget-report</a>
+        </p>
+        <span class="pill">Pages: stejná doména jako report</span>
+      </div>
+    </div>
+  </body>
+</html>

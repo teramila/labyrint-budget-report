@@ -197,7 +197,7 @@
       <section class="year-section y26">
         <div class="year-header">ROK 2026 <span class="badge">AKTIVNÍ</span></div>
         <div class="note" style="padding: 0 4px; margin-bottom: 4px">
-          Účastnice: <b>Terka / Vendy / Eliška / Petra / Karolína</b> (5 osob). Akce: <b>18. 4. 2026</b>.
+          Účastnice: <b>Terka / Vendy / Eliška / Petra / Karolína</b> (5 osob). Akce: <b>18. 4. 2026</b> (proběhla).
         </div>
 
         <div class="grid">
@@ -207,8 +207,8 @@
             <div class="kpis">
               <div class="kpi">
                 <div class="label">Kredity (příchozí) — vstupné a podobné příjmy</div>
-                <div class="value good">237&nbsp;616,00 Kč</div>
-                <div class="sub">Export pohybů účtu 2203369034 (1.&nbsp;10.&nbsp;2025 – 18.&nbsp;4.&nbsp;2026) + ručně po exportu <b>1&nbsp;096,50 Kč</b> a <b>2× 2&nbsp;086 Kč</b>. Rozpad kreditů: <b>2026</b> 213&nbsp;856,00 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
+                <div class="value good">249&nbsp;089 Kč</div>
+                <div class="sub">Export pohybů účtu 2203369034 (1.&nbsp;10.&nbsp;2025 – 19.&nbsp;4.&nbsp;2026), stav k 19.&nbsp;4.&nbsp;2026. Rozpad kreditů: <b>2026</b> 225&nbsp;329 Kč; <b>2025</b> 23&nbsp;760 Kč.</div>
               </div>
               <div class="kpi">
                 <div class="label">Záporné položky (poplatky, vrácení, …)</div>
@@ -217,12 +217,12 @@
               </div>
               <div class="kpi">
                 <div class="label">Čistý stav na účtu</div>
-                <div class="value">227&nbsp;758,00 Kč</div>
-                <div class="sub">= 237&nbsp;616,00 − 9&nbsp;858 (záporné dle CSV k 18.&nbsp;4.&nbsp;2026)</div>
+                <div class="value">239&nbsp;231 Kč</div>
+                <div class="sub">= 249&nbsp;089 − 9&nbsp;858 (CSV k 19.&nbsp;4.&nbsp;2026)</div>
               </div>
             </div>
             <div class="note" style="margin-top: 10px">
-              Zdroj: <span class="mono">Pohyby_na_uctu-2203369034_20251001-20260418.csv</span> — výpis jednoho účtu (2203369034); kredity a čistý stav navíc obsahují ručně <b>1&nbsp;096,50 Kč</b> a <b>2× 2&nbsp;086 Kč</b> po tomto exportu.
+              Zdroj: <span class="mono">Pohyby_na_uctu-2203369034_20251001-20260419.csv</span> — výpis jednoho účtu (2203369034), finální export po akci.
               Toto je účet pro akci 2026 (vstupenky se začaly prodávat v prosinci 2025).
               Zůstatek 9&nbsp;660 Kč z akce 2025 je na jiném/starším účtu a řeší se ve vyrovnání 2025 níže.
             </div>
@@ -332,13 +332,23 @@
               <b>GitHub Pages</b> (např. <span class="mono">teramila.github.io/…/budget_report_labyrint.html</span>) —
               náhled souboru přímo na github.com často <b>JavaScript vypne</b>, pak uvidíš jen pomlčky.
             </p>
+            <div id="b26_deficitHero" class="b26-break-box" style="margin-bottom: 14px; border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.1)" aria-live="polite">
+              <div class="b26-break-title" style="color: var(--bad)">Doplatek v Kč (po akci, z aktuálních čísel v tabulce)</div>
+              <p style="margin: 0 0 8px; font-size: 15px; line-height: 1.5">
+                <strong>Scénář s DPH:</strong> <span id="b26_heroDphLine" class="mono">—</span>
+              </p>
+              <p style="margin: 0; font-size: 15px; line-height: 1.5">
+                <strong>Přes plátce DPH (nižší výdaje):</strong> <span id="b26_heroBezLine" class="mono">—</span>
+              </p>
+              <p class="tiny" style="margin-top: 10px; margin-bottom: 0">Počítá se z řádků výše (účet, catering, Notino, další příjmy, výdaje). Vstupenky už neprodáváme — cena vstupenky je ve výchozím stavu 0; orientační počet kusů je jen doplněk.</p>
+            </div>
             <table>
               <thead><tr><th>Položka</th><th class="num">Částka (s DPH)</th><th>Poznámka</th></tr></thead>
               <tbody>
                 <tr>
                   <td><b>Na účtu teď</b> (před platbám z účtu)</td>
-                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="227758,00" style="width:140px" /></td>
-                  <td class="muted">Výchozí 227&nbsp;758,00 Kč (CSV k 18.&nbsp;4.&nbsp;2026 + 1&nbsp;096,50 Kč a 2× 2&nbsp;086 Kč po exportu).</td>
+                  <td class="num"><input id="b26_account" class="mono" inputmode="decimal" value="239231" style="width:140px" /></td>
+                  <td class="muted">Výchozí 239&nbsp;231 Kč dle CSV k 19.&nbsp;4.&nbsp;2026 (čistý stav = kredity − záporné v exportu).</td>
                 </tr>
                 <tr>
                   <td><b>Naplánované platby z účtu</b> (odečíst už teď)</td>
@@ -362,9 +372,9 @@
                   <td class="muted">Dle Elišky</td>
                 </tr>
                 <tr>
-                  <td>Očekávané další příjmy (vstupné do akce)</td>
+                  <td>Očekávané další příjmy (stánkaři / ještě nepřišlo na účet)</td>
                   <td class="num"><input id="b26_moreIncome" class="mono" inputmode="decimal" placeholder="0" style="width:140px" /></td>
-                  <td class="muted">Kolik se ještě prodá do 18. 4. (vč. kanálu „Prostě město“ / jiný split — zadej součet sem)</td>
+                  <td class="muted">Tržby stánkařů a podobné částky, které v tomto CSV ještě nejsou — až dorazí na účet 2203369034, zadej je sem nebo přepočítej po novém výpisu z banky.</td>
                 </tr>
                 <tr class="muted"><td colspan="3" style="padding: 4px 10px; font-size: 12px; font-weight: 700">VÝDAJE</td></tr>
                 <tr>
@@ -402,11 +412,11 @@
                   <td class="num"><b id="b26_resultDPH" class="mono" style="font-size: 16px">—</b></td>
                   <td class="muted">= efektivní účet + catering + Notino + vstupné − výdaje bez DPH</td>
                 </tr>
-                <tr class="muted"><td colspan="3" style="padding: 10px 10px 4px; font-size: 12px; font-weight: 700; border-top: 2px solid var(--border)">NA NULU — kolik ještě „vydělat“ vstupným</td></tr>
+                <tr class="muted"><td colspan="3" style="padding: 10px 10px 4px; font-size: 12px; font-weight: 700; border-top: 2px solid var(--border)">Orientační vstupenky (volitelné — prodej po akci končí)</td></tr>
                 <tr>
                   <td>Průměrná cena 1 vstupenky</td>
-                  <td class="num"><input id="b26_ticketPrice" class="mono" inputmode="decimal" value="1290" style="width:100px" /></td>
-                  <td class="muted">Uprav cenu → přepočítá se odhad počtu lístků (nahoru)</td>
+                  <td class="num"><input id="b26_ticketPrice" class="mono" inputmode="decimal" value="0" style="width:100px" /></td>
+                  <td class="muted">Nech 0 po ukončení prodeje; zadej jen když chceš odhad „kolik by stálo ještě X vstupenek“.</td>
                 </tr>
                 <tr>
                   <td>Doplatek vstupným <b>(scénář s DPH)</b></td>
@@ -435,7 +445,7 @@
               </tbody>
             </table>
             <div id="b26_breakEvenBox" class="b26-break-box" aria-live="polite">
-              <div class="b26-break-title">Kolik vstupenek prodat na nulu</div>
+              <div class="b26-break-title">Shrnutí: vstupenky na nulu (doplněk k částce výše)</div>
               <p id="b26_breakLineDph">
                 <strong>Scénář s DPH:</strong> <span class="muted">načítám…</span>
               </p>
@@ -695,7 +705,7 @@
 
       /* ── 2026 Data ── */
       const d26 = {
-        accountFromCSV: 227758,
+        accountFromCSV: 239231,
         performersCost: 80730,
         fixedCostDPH: 201213,
         fixedCostBezDPH: 171432,
@@ -962,10 +972,21 @@
             } else {
               cntEl.textContent = "—";
               cntEl.style.color = "var(--muted)";
-              tEl.textContent = "Zadej cenu vstupenky výše — bez ní nejde spočítat počet kusů.";
+              tEl.textContent =
+                "Prodej vstupenek je ukončen — orientační počet kusů nepočítáme. Řídící je doplatek v Kč (box nad tabulkou a částka vlevo).";
             }
           }
         };
+
+        const heroDph = document.getElementById("b26_heroDphLine");
+        const heroBez = document.getElementById("b26_heroBezLine");
+        const heroLine = (gap) => {
+          if (gap < -0.005) return `přebytek ${fmt(Math.abs(gap))} Kč`;
+          if (gap <= 0.005) return "na nule / v mírném přebytku (v rámci zaokrouhlení)";
+          return `zbývá doplatit ${fmt(gap)} Kč`;
+        };
+        if (heroDph) heroDph.textContent = heroLine(gapDph);
+        if (heroBez) heroBez.textContent = heroLine(gapBez);
 
         setGapRow(
           document.getElementById("b26_gapDphKc"),
@@ -998,7 +1019,15 @@
             return;
           }
           if (ticketPrice <= 0.005) {
-            el.appendChild(document.createTextNode(` Chybí ${fmt(gap)} Kč — doplň cenu vstupenky v tabulce výše.`));
+            el.appendChild(
+              document.createTextNode(
+                gap > 0.005
+                  ? ` Chybí ${fmt(gap)} Kč — cena vstupenky je 0 (konec prodeje). Zadej cenu jen pro odhad počtu kusů.`
+                  : gap < -0.005
+                    ? ` V plusu o ${fmt(Math.abs(gap))} Kč.`
+                    : " Na nule."
+              )
+            );
             return;
           }
           const n = Math.ceil(gap / ticketPrice - 1e-9);
